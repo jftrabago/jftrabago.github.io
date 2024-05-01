@@ -33,7 +33,8 @@
     <code style="color : fuchsia"><a href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2">ResearchGate</a></code> |
     <code style="color : fuchsia"><a href="https://orcid.org/0000-0003-0971-6307">ORCID</a></code> |	
     <code style="color : fuchsia"><a href="https://www.scopus.com/authid/detail.uri?authorId=56263743100">SCOPUS</a></code> |
-    <code style="color : fuchsia"><a href="https://researchmap.jp/jftrabago">ResearchMap</a></code>
+    <code style="color : fuchsia"><a href="https://researchmap.jp/jftrabago">ResearchMap</a></code> |
+    <code style="color : fuchsia"><a href="https://sites.google.com/view/jftrabago/home">GoogleSite</a></code>
     </nav>
     
     <img src="fergy_photo.png" alt="photo" width="400" class="center">
