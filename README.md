@@ -1,4 +1,5 @@
 <!-- Basic HTML Structure -->
+<html>
 <head>
     <meta charset="UTF-8">
     <title>About Me</title>
@@ -24,7 +25,7 @@
 <body>
     <div>
 
-    <h1><span style='font-family:"Times New Roman"'> <span styel=''>It is "Times New Roman" font. Hello! Welcome to my page!</h1>
+    <h1>Hello! Welcome to my page!</h1>
 
     <nav>
     <code style="color : fuchsia"><a href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao">GoogleScholar</a></code> |
@@ -36,7 +37,8 @@
     </nav>
     
     <img src="fergy_photo.png" alt="photo" width="400" class="center">
-
+    
+    <span style='font-family:"Times New Roman"'> <span styel=''>
     <p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a>
         I am also currently an <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a> at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a>. </p>
 
