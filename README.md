@@ -54,8 +54,44 @@ p{color:Black !important;}
 ## Submitted and In Preparation
 
 ## Published
-60. **Comoving mesh method for multi-dimensional moving boundary problems: mean-curvature flow and Stefan problems**  <br />
-    *<code style="color:fuchsia">Mathematics and Computers in Simulation, Volume 221, July 2024, Pages 589-605</code>*  <br />
-    with M. Kimura and Y. Sunayama  <br />
-    DOI: [10.1016/j.matcom.2024.03.020](https://doi.org/10.1016/j.matcom.2024.03.020)
+1. **J. F. T. Rabago** and L. Afraites  
+   *Boundary shape reconstruction with Robin condition: existence result, stability analysis, and inversion via multiple measurements*  
+   *Computational and Applied Mathematics*  
+   DOI: [Link]( )
+
+2. Y. Sunayama, M. Kimura, and **J. F. T. Rabago**  
+   *Comoving mesh method for multi-dimensional moving boundary problems: mean-curvature flow and Stefan problems*  
+   *Mathematics and Computers in Simulation, Volume 221, July 2024, Pages 589-605*  
+   DOI: [10.1016/j.matcom.2024.03.020](https://doi.org/10.1016/j.matcom.2024.03.020)
+
+3. **J. F. T. Rabago** and H. Notsu  
+   *Numerical solution to a free boundary problem for the Stokes equation using the coupled complex boundary method in shape optimization settings*  
+   *Applied Mathematics and Optimization, Volume 89, 2024, Article Number 2*  
+   DOI: [10.1007/s00245-023-10065-7](https://doi.org/10.1007/s00245-023-10065-7)
+
+4. E. Charrat, L. Afraites, and **J. F. T. Rabago**  
+   *Shape reconstruction for advection-diffusion problems by shape optimization method: the case of constant velocity*  
+   *Discrete and Continuous Dynamical Systems Series S*  
+   DOI: [10.3934/dcdss.2023186](https://doi.org/10.3934/dcdss.2023186)
+
+5. L. Afraites and **J. F. T. Rabago**  
+   *Shape optimization methods for detecting an unknown boundary with the Robin condition by a single measurement*  
+   *Discrete and Continuous Dynamical Systems Series S*  
+   DOI: [10.3934/dcdss.2022196](https://doi.org/10.3934/dcdss.2022196)
+
+6. **J. F. T. Rabago**  
+   *Numerical solution to the exterior Bernoulli problem using the Dirichlet-Robin energy gap cost functional approach in two and three dimensions*  
+   *Numerical Algorithms, Volume 94, February 2023, Pages 175-227*  
+   DOI: [10.1007/s11075-023-01497-x](https://doi.org/10.1007/s11075-023-01497-x)
+
+7. **J. F. T. Rabago**  
+   *On the new coupled complex boundary method in shape optimization framework for solving stationary free boundary problems*  
+   *Mathematical of Control and Related Fields, Volume 13, Number 4, December 2023, Pages 1362-1398*  
+   DOI: [10.3934/mcrf.2022041](https://doi.org/10.3934/mcrf.2022041)
+
+8. Y. Sunayama, **J. F. T. Rabago**, and M. Kimura  
+   *Comoving mesh method for certain classes of moving boundary problems*  
+   *Japan Journal of Industrial and Applied Mathematics, Volume 39, August 2022, Pages 973–1001*  
+   DOI: [10.1007/s13160-022-00524-z](https://doi.org/10.1007/s13160-022-00524-z)
+
     
