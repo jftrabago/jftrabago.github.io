@@ -24,7 +24,7 @@
 
 <body>
     <div>
-    <span style='font-family:"Times New Roman">
+    <span style="font-family: Times New Roman">
     <h1>Hello! Welcome to my page!</h1>
 
     <nav>
