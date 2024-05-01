@@ -29,11 +29,11 @@
     <h1>Hello! Welcome to my page!</h1>
 
     <nav>
-    <a href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao">GoogleScholar</a> |
-    <a href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2">ResearchGate</a> |
-    <a href="https://orcid.org/0000-0003-0971-6307">ORCID</a> |	
-    <a href="https://www.scopus.com/authid/detail.uri?authorId=56263743100">SCOPUS</a> |
-    <a href="https://researchmap.jp/jftrabago">ResearchMap</a>
+    <code style="color : fuchsia"><a href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao">GoogleScholar</a></code> |
+    <code style="color : fuchsia"><a href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2">ResearchGate</a></code> |
+    <code style="color : fuchsia"><a href="https://orcid.org/0000-0003-0971-6307">ORCID</a></code> |	
+    <code style="color : fuchsia"><a href="https://www.scopus.com/authid/detail.uri?authorId=56263743100">SCOPUS</a></code> |
+    <code style="color : fuchsia"><a href="https://researchmap.jp/jftrabago">ResearchMap</a></code>
     </nav>
     
     <img src="fergy_photo.png" alt="photo" width="400" class="center">
