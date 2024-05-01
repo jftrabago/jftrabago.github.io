@@ -24,7 +24,7 @@
 
 <body>
     <div>
-
+    <span style='font-family:"Times New Roman">
     <h1>Hello! Welcome to my page!</h1>
 
     <nav>
@@ -38,7 +38,6 @@
     
     <img src="fergy_photo.png" alt="photo" width="400" class="center">
     
-    <span style='font-family:"Times New Roman"'> <span styel=''>
     <p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a>
         I am also currently an <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a> at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a>. </p>
 
@@ -56,8 +55,7 @@
     <a href="contact.html">Contact</a>
     </nav>
 
-
-
+    </span>
     </div>
 </body>
 
