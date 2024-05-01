@@ -28,6 +28,14 @@
 
     <h1>Hello! Welcome to my page!</h1>
 
+    <nav>
+    <a href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao">GoogleScholar</a> |
+    <a href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2">ResearchGate</a> |
+    <a href="https://orcid.org/0000-0003-0971-6307">ORCID</a> |	
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=56263743100">SCOPUS</a> |
+    <a href="https://researchmap.jp/jftrabago">ResearchMap</a>
+    </nav>
+    
     <img src="fergy_photo.png" alt="photo" width="400" class="center">
 
     <p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a>
@@ -37,10 +45,14 @@
 
 
     <nav>
-        <a href="education.html">Education</a> |
-        <a href="recentpapers.html">Papers</a> |
-        <a href="teaching.html">Teaching</a> |
-        <a href="contact.html">Contact</a>
+    <a href="jftrabago.github.io">Home</a> |
+    <a href="https://drive.google.com/file/d/1eNqmiGWfEfByg0YGnT4EsfNjb3jcCzP_/view?usp=share_link">Vitae</a> |
+    <a href="education.html">Education</a> |	
+    <a href="recentpapers.html">Papers</a> |
+    <a href="teaching.html">Teaching</a> |
+    <a href="links.html">Links</a> |
+    <a href="events.html">Events</a> |
+    <a href="contact.html">Contact</a>
     </nav>
 
 
