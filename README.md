@@ -13,7 +13,7 @@
 		table, th, td {
 		  font-weight: normal;	
 		  text-align: left;	
-		  border: 1px solid white;
+		  border: 0px solid white;
 		  border-collapse: collapse;
 		}
     </style>
@@ -45,12 +45,12 @@
     
 	<table style="width:100%">
 	  <tr>
-	    <th><img src="fergy_photo.png" alt="photo" class="center"></th>
-	    <th>	
+	    <td><img src="fergy_photo.png" alt="photo" class="center"></td>
+	    <td>	
 			<p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a></p>
 			
 			<p> I am also currently an <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a> at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a>. </p>
-		</th>  
+		</td>  
 	  </tr>
 	</table>
 
