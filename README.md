@@ -1,6 +1,4 @@
 <!-- Basic HTML Structure -->
-<html>
-
 <head>
     <meta charset="UTF-8">
     <title>About Me</title>
@@ -26,7 +24,7 @@
 <body>
     <div>
 
-    <h1>Hello! Welcome to my page!</h1>
+    <h1><span style='font-family:"Times New Roman"'> <span styel=''>It is "Times New Roman" font. Hello! Welcome to my page!</h1>
 
     <nav>
     <code style="color : fuchsia"><a href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao">GoogleScholar</a></code> |
