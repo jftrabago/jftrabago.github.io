@@ -36,7 +36,7 @@
     <code style="color : fuchsia"><a href="https://sites.google.com/view/jftrabago/home">GoogleSite</a></code>
     </nav>
     
-    <img src="fergy_photo.png" alt="photo" width="400" class="center">
+    <img src="fergy_photo.png" alt="photo" width="200" class="center">
     
     <p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a>
         I am also currently an <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a> at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a>. </p>
