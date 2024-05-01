@@ -45,7 +45,7 @@
     
 	<table style="width:100%">
 	  <tr>
-	    <th><img src="fergy_photo.png" alt="photo" width="220" class="center"></th>
+	    <th><img src="fergy_photo.png" alt="photo" class="center"></th>
 	    <th>	
 			<p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a></p>
 			
