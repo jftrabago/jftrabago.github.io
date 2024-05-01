@@ -5,7 +5,7 @@ p{color:Black !important;}
 </style>
 
 ### Contents
-* [About Me](<a href="aboutme.html" title="About Me">About Me</a>)
+* <a href="aboutme.html" title="About Me">About Me</a>
 * [Curriculum Vitae](#curriculum-vitae)
 * [Papers](#papers)
 
