@@ -1,5 +1,4 @@
 <!-- Basic HTML Structure -->
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -27,26 +26,22 @@
 <body>
     <div>
 
-        <font size="+1">
+    <h1>Hello! Welcome to my page!</h1>
 
-            <h1>Hello! I'm Fergy! Welcome to my page!</h1>
+    <img src="fergy_photo.png" alt="photo" width="400" class="center">
 
-            <img src="fergy_photo.png" alt="photo" width="400" class="center">
+    <p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a>
+        I am also currently an <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a> at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a>. </p>
 
-            <p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a>
-                I am also currently an <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a> at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a>. </p>
+    <p> My current research interests include stationary free boundary and free surface problems, moving boundary problems, geometric inverse problems, and applications of shape optimization methods.</p>
 
-            <p> My current research interests include stationary free boundary and free surface problems, moving boundary problems, geometric inverse problems, and applications of shape optimization methods.</p>
-        </font>
 
-        <font size="+2">
-            <nav>
-                <a href="education.html">Education</a> |
-                <a href="papers.html">Papers</a> |
-                <a href="teaching.html">Teaching</a> |
-                <a href="contact.html">Contact</a>
-            </nav>
-        </font>
+    <nav>
+        <a href="education.html">Education</a> |
+        <a href="recentpapers.html">Papers</a> |
+        <a href="teaching.html">Teaching</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
 
 
 
