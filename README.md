@@ -38,7 +38,7 @@
 
     <nav>
         <a href="education.html">Education</a> |
-        <a href="recentpapers.md">Papers</a> |
+        <a href="recentpapers.html">Papers</a> |
         <a href="teaching.html">Teaching</a> |
         <a href="contact.html">Contact</a>
     </nav>
