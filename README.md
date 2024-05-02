@@ -57,16 +57,17 @@
 	<p> My current research interests include stationary free boundary and free surface problems, moving boundary problems, geometric inverse problems, and applications of shape optimization methods.</p> 
 
 
-    <nav>
-    <a href="jftrabago.github.io">Home</a> |
-    <a href="https://drive.google.com/file/d/1eNqmiGWfEfByg0YGnT4EsfNjb3jcCzP_/view?usp=share_link">Vitae</a> |
-    <a href="education.html">Education</a> |	
-    <a href="recentpapers.html">Papers</a> |
-    <a href="teaching.html">Teaching</a> |
-    <a href="links.html">Links</a> |
-    <a href="events.html">Events</a> |
-    <a href="contact.html">Contact</a>
-    </nav>
+	<nav>
+	<a href="jftrabago.github.io">Home</a> |
+	<a href="https://drive.google.com/file/d/1eNqmiGWfEfByg0YGnT4EsfNjb3jcCzP_/view?usp=share_link">Vitae</a> |
+	<a href="education.html">Education</a> |
+	<a href="research.html">Research</a> |	
+	<a href="recentpapers.html">Papers</a> |
+	<a href="teaching.html">Teaching</a> |
+	<a href="links.html">Links</a> |
+	<a href="events.html">Events</a> |
+	<a href="contact.html">Contact</a>
+	</nav>
 
     </span>
     </div>
