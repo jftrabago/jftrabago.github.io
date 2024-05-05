@@ -66,6 +66,7 @@
 	<a href="teaching.html">Teaching</a> |
 	<a href="links.html">Links</a> |
 	<a href="events.html">Events</a> |
+	<a href="talks.html">Talks</a> |
 	<a href="contact.html">Contact</a>
 	</nav>
 
