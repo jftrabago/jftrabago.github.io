@@ -23,6 +23,7 @@
 	  border-collapse: collapse;
 	}
 	</style>
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -48,8 +49,8 @@
 	
 	<table style="width:100%">
 	  <tr>
-	    <td><img src="fergy_photo.png" alt="photo" class="center"></br>
-		<i class="fa fa-envelope" style="font-size:24px;color:blue">&nbsp;jftrabago[at]gmail.com</i>
+	    <td><p><img src="fergy_photo.png" alt="photo" class="center"></p>
+		<p><i class="fa fa-envelope" style="font-size:24px;color:blue">&nbsp;jftrabago[at]gmail.com</i></p>
 	    </td>	
      	    <td>	
 			<p> <h4>Hello! I'm Fergy, welcome to my page!</h4> </p>
