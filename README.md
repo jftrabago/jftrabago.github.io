@@ -12,7 +12,7 @@
 	    margin-right: auto;
 	}
 	div {
-	    max-width: 800px;
+	    max-width: 700px;
 	    min-width: 300px;
 	    background-color: white;
 	}
@@ -58,7 +58,7 @@
 	  </tr>
 	</table>
 	
-	<p> My current research interests include stationary free boundary and free surface problems, moving boundary problems, geometric inverse problems, and applications of shape optimization methods.</p> 
+	<p> <i>Keywords</i> free boundary problems, free surface problems, moving boundary problems, inverse geometry problems, shape optimization problems</p> 
 
  	<footer>
 	<font size="+1">
