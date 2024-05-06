@@ -44,13 +44,14 @@
 	</font>		
 	</header>
 
- 
+
 	<div> 
 	
 	<table style="width:100%">
 	  <tr>
 	    <td><p><img src="fergy_photo.png" alt="photo" class="center"></p>
 		<p><code style="color : fuchsia"><i class="fa fa-envelope" style="font-size:20px;color:fuchsia">&nbsp;jftrabago[at]gmail.com</i></code></p>
+  		<p><code style="color : fuchsia"><a href="https://orcid.org/0000-0003-0971-6307"><i class=""fa-brands fa-orcid"" style="font-size:20px;color:fuchsia">&nbsp;jftrabago[at]gmail.com</i></a></code></p>
 	    </td>	
      	    <td>	
 			<p> <h4>Hello! I'm Fergy, welcome to my page!</h4> </p>
