@@ -73,8 +73,7 @@
 	</header>
 
  
-	<div>
-	<span style="font-family: sans-serif">
+	<div> 
 	
 	<table style="width:100%">
 	  <tr>
@@ -99,8 +98,7 @@
 	<code style="color : fuchsia"><a href="https://researchmap.jp/jftrabago">ResearchMap</a></code> |	
 	<code style="color : fuchsia"><a href="https://www.scopus.com/authid/detail.uri?authorId=56263743100">SCOPUS</a></code>
 	</nav>
-	
-	</span>
+	 
 	</div>
 </body>
 
