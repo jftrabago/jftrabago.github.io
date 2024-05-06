@@ -12,7 +12,7 @@
 	    margin-right: auto;
 	}
 	div {
-	    max-width: 650px;
+	    max-width: 800px;
 	    min-width: 300px;
 	    background-color: white;
 	}
@@ -59,8 +59,9 @@
 	</table>
 	
 	<p> My current research interests include stationary free boundary and free surface problems, moving boundary problems, geometric inverse problems, and applications of shape optimization methods.</p> 
-	
-	
+
+ 	<footer>
+	<font size="+1">
 	<nav>
 	<code style="color : fuchsia"><a href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao">GoogleScholar</a></code> |
 	<code style="color : fuchsia"><a href="https://sites.google.com/view/jftrabago/home">GoogleSite</a></code> |
@@ -69,8 +70,11 @@
 	<code style="color : fuchsia"><a href="https://researchmap.jp/jftrabago">ResearchMap</a></code> |	
 	<code style="color : fuchsia"><a href="https://www.scopus.com/authid/detail.uri?authorId=56263743100">SCOPUS</a></code>
 	</nav>
-	 
+	</font>	
+	</footer>
+  
 	</div>
+ 
 </body>
 
 </html>
