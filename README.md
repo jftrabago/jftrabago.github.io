@@ -55,7 +55,6 @@
 	    margin-right: auto;
 	}
 	</style>
-
 </head>
 
 <body>
