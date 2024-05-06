@@ -51,7 +51,7 @@
 	  <tr>
 	    <td><p><img src="fergy_photo.png" alt="photo" class="center"></p>
 		<p><code style="color : fuchsia"><i class="fa fa-envelope" style="font-size:20px;color:fuchsia">&nbsp;jftrabago[at]gmail.com</i></code></p>
-  		<p><code style="color : fuchsia"><i class="fa fa-orcid" style="font-size:20px;color:fuchsia"></i></code></p> 
+  		<p><i class="fa fa-orcid" style="font-size:20px;color:fuchsia"></i></p> 
 	    </td>	
      	    <td>	
 			<p> <h4>Hello! I'm Fergy, welcome to my page!</h4> </p>
