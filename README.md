@@ -52,7 +52,7 @@
 	    <td><p><img src="fergy_photo.png" alt="photo" class="center"></p>
 		<p><code style="color : fuchsia"><i class="fa fa-envelope" style="font-size:20px;color:fuchsia">&nbsp;jftrabago[at]gmail.com</i></code></p>
   
-  		<p><code style="color : blue"><i class="fa fa-file" style="font-size:20px;color:blue"></i>&nbsp;<a style="font-size:20px;color:blue" href="https://drive.google.com/file/d/1eNqmiGWfEfByg0YGnT4EsfNjb3jcCzP_/view?usp=share_link">Curriculum</a> Vitae</code></p>
+  		<p><code style="color : blue"><i class="fa fa-file" style="font-size:20px;color:blue"></i>&nbsp;<a style="font-size:20px;color:blue" href="https://drive.google.com/file/d/1eNqmiGWfEfByg0YGnT4EsfNjb3jcCzP_/view?usp=share_link">Curriculum Vitae</a></code></p>
 	    </td>	
      
      	    <td>	
