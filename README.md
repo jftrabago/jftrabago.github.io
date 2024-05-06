@@ -12,8 +12,8 @@
 	    margin-right: auto;
 	}
 	div {
-	    max-width: 610px;
-	    min-width: 100px;
+	    max-width: 650px;
+	    min-width: 300px;
 	    background-color: white;
 	}
 	table, th, td {
