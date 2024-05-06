@@ -4,7 +4,13 @@
 	<meta charset="UTF-8">
 	<title>About Me</title>
 	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
+	img {
+	    display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
 	div {
 	    max-width: 610px;
 	    min-width: 100px;
@@ -45,15 +51,6 @@
 	color: blue;  
 	text-decoration: none;  
 	} 
-	</style>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-	img {
-	    display: block;
-	    margin-left: auto;
-	    margin-right: auto;
-	}
 	</style>
 </head>
 
