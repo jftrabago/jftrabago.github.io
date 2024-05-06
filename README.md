@@ -56,7 +56,7 @@
 	    </td>	
      
      	    <td>	
-			<p> <h2>Hello! I'm Fergy, welcome to my page!</h2> </p>
+			<p> <h3>Hello! I'm Fergy, welcome to my page!</h3> </p>
 			<p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a></p>
 			
 			<p> I am also currently an <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a> at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a>. </p>
