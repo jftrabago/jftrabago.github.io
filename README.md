@@ -50,7 +50,7 @@
 	<table style="width:100%">
 	  <tr>
 	    <td><p><img src="fergy_photo.png" alt="photo" class="center"></p>
-		<p><i class="fa fa-envelope" style="font-size:24px;color:blue">&nbsp;jftrabago[at]gmail.com</i></p>
+		<p><i class="fa fa-envelope" style="font-size:20px;color:fuchsia">&nbsp;jftrabago[at]gmail.com</i></p>
 	    </td>	
      	    <td>	
 			<p> <h4>Hello! I'm Fergy, welcome to my page!</h4> </p>
