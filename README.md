@@ -23,7 +23,7 @@
 	  border-collapse: collapse;
 	}
 	</style>
- 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+ 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -51,7 +51,6 @@
 	  <tr>
 	    <td><p><img src="fergy_photo.png" alt="photo" class="center"></p>
 		<p><code style="color : fuchsia"><i class="fa fa-envelope" style="font-size:20px;color:fuchsia">&nbsp;jftrabago[at]gmail.com</i></code></p>
-  		<p><a href="https://orcid.org/0000-0003-0971-6307"><i class="fa fa-orcid" style="font-size:20px;color:fuchsia"></i></a></p> 
 	    </td>	
      	    <td>	
 			<p> <h4>Hello! I'm Fergy, welcome to my page!</h4> </p>
