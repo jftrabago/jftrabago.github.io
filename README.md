@@ -48,8 +48,7 @@
 	
 	<table style="width:100%">
 	  <tr>
-	    <td><p><img src="fergy_photo.png" alt="photo" class="center"></p>
-		<p><i class="fa fa-envelope" style="font-size:24px;color:blue">&nbsp;jftrabago[at]gmail.com</i></p>
+	    <td><img src="fergy_photo.png" alt="photo" class="center">
 	    </td>	
 			<p> <h4>Hello! I'm Fergy, welcome to my page!</h4> </p>
 			<p> I am currently a postdoctoral researcher at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University.</a></p>
