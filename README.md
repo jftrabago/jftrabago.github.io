@@ -50,7 +50,7 @@
 
  
 	<div>
-	<span style="font-family: Times New Roman">
+	<span style="font-family: sans-serif">
 	
 	<table style="width:100%">
 	  <tr>
