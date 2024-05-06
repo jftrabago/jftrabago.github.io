@@ -50,11 +50,11 @@
 	<table style="width:100%">
 	  <tr>
 	    <td>
-			<code style="color : fuchsia"><a href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao"><img alt="gs logo" src="sg.png" width="25" height="25" /></a></code>
-			<code style="color : fuchsia"><a href="https://orcid.org/0000-0003-0971-6307"><img alt="ORCID logo" src="orcid.png" width="25" height="25" /></a></code>
-			<code style="color : fuchsia"><a href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2"><img alt="rg logo" src="rg.png" width="25" height="25" /></a></code>
-			<code style="color : fuchsia"><a href="https://researchmap.jp/jftrabago"><img alt="rm logo" src="rm.png" width="25" height="25" /></a></code>
-			<code style="color : fuchsia"><a href="https://www.scopus.com/authid/detail.uri?authorId=56263743100"><img alt="scopus logo" src="scopus.png" width="25" height="25" /></a></code>
+		<a href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao"><img alt="gs logo" src="sg.png" width="30" height="30" /></a>
+		<a href="https://orcid.org/0000-0003-0971-6307"><img alt="ORCID logo" src="orcid.png" width="30" height="30" /></a>
+		<a href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2"><img alt="rg logo" src="rg.png" width="30" height="30" /></a>
+		<a href="https://researchmap.jp/jftrabago"><img alt="rm logo" src="rm.png" width="30" height="30" /></a>
+		<a href="https://www.scopus.com/authid/detail.uri?authorId=56263743100"><img alt="scopus logo" src="scopus.png" width="30" height="30" /></a>
 	    </td>	
   
 	    <td><p><img src="fergy_photo.png" alt="photo" class="center"></p>
