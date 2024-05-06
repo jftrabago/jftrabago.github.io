@@ -1,6 +1,33 @@
 <!-- Basic HTML Structure -->
 <html>
 <head>
+  	
+	<meta charset="UTF-8">
+	<title>About Me</title>
+	
+	<style>
+	div {
+	    max-width: 610px;
+	    min-width: 100px;
+	    background-color: white;
+	}
+		table, th, td {
+		  font-weight: normal;	
+		  text-align: left;	
+		  border: 0px solid white;
+		  border-collapse: collapse;
+		}
+	</style>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+	img {
+	    display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+	</style>
+
 	<style type=text/css>   
 	body   
 	{  
@@ -31,33 +58,7 @@
 	color: blue;  
 	text-decoration: none;  
 	}  
-	</style>   
-	
-	<meta charset="UTF-8">
-	<title>About Me</title>
-	
-	<style>
-	div {
-	    max-width: 610px;
-	    min-width: 100px;
-	    background-color: white;
-	}
-		table, th, td {
-		  font-weight: normal;	
-		  text-align: left;	
-		  border: 0px solid white;
-		  border-collapse: collapse;
-		}
-	</style>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-	img {
-	    display: block;
-	    margin-left: auto;
-	    margin-right: auto;
-	}
-	</style>
+	</style> 
 </head>
 
 <body>
