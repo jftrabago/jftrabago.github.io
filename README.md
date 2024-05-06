@@ -51,7 +51,7 @@
 	  <tr>
 	    <td><p><img src="fergy_photo.png" alt="photo" class="center"></p>
 		<p><code style="color : fuchsia"><i class="fa fa-envelope" style="font-size:20px;color:fuchsia">&nbsp;jftrabago[at]gmail.com</i></code></p>
-  		<p><a href="https://orcid.org/0000-0003-0971-6307"><i class="fa fa-envelope" style="font-size:20px;color:fuchsia"><code style="color : fuchsia"></code></i></a></p>
+  		<p><code style="color : fuchsia"><a href="https://orcid.org/0000-0003-0971-6307"><i class="fab fa-orcid" style="font-size:20px;color:fuchsia"></i></a></code></p>
 	    </td>	
      	    <td>	
 			<p> <h4>Hello! I'm Fergy, welcome to my page!</h4> </p>
