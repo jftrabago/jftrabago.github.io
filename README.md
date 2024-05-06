@@ -59,8 +59,6 @@
 	    </td>  
 	  </tr>
 	</table>
-	
-	<p> <i>Keywords</i> free boundary problems, free surface problems, moving boundary problems, inverse geometry problems, shape optimization problems</p> 
 
  	<footer>
 	<font size="+1">
