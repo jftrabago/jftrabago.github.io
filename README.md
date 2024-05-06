@@ -1,7 +1,37 @@
 <!-- Basic HTML Structure -->
 <html>
 <head>
-  	
+	<style type=text/css>   
+	body   
+	{  
+	height: 125vh;  
+	margin-top: 0px;  
+	padding: 30px;  
+	background-size: cover;  
+	font-family: sans-serif;  
+	}  
+	header {  
+	background-color: none;  
+	position: none;  
+	left: 0;  
+	right: 0;  
+	top: 5px;  
+	height: 30px;  
+	display: flex;  
+	align-items: center;  
+	box-shadow: 0 0 25px 0 none;  
+	}  
+	header * {  
+	display: inline;  
+	}  
+	header li {  
+	margin: 20px;  
+	}  
+	header li a {  
+	color: blue;  
+	text-decoration: none;  
+	}  
+	</style>   
 	<meta charset="UTF-8">
 	<title>About Me</title>
 	
