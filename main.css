@@ -86,7 +86,7 @@ th,td{
 
 /* Webpage Banner */
 .banner {position: relative; font-family: 'Open Sans';}
-.top-right {font-size:2.33em; color: #1d324d; background: none; text-align: center; width: 360px; height: 30px; position: relative; padding: 36px 0 0 0; top: 0px;}
+.top-right {font-size:2.33em; color: #1d324d; background: none; text-align: center; width: 600px; height: 30px; position: relative; padding: 36px 0 0 0; top: 0px;}
 .bottom-right {font-size:17px; color: #1d324d; line-height: auto; width: 600px; height: auto; padding: 0px 27px 27px 0px; text-align: justify; text-justify: inter-word; ; position: absolute; bottom: 0px; right: 0px; text-shadow: none;}
 
 
@@ -126,6 +126,31 @@ td.navigation{font-size:1em; white-space:nowrap; width:20%; text-align:center; v
 .topnav-right {
   float: right;
 }
+
+.navbar {
+  overflow: hidden;
+  background-color: none;
+}
+
+.navbar a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
 
 
 footer{font-size:0.875em; margin-top:12em; text-align:center;}
