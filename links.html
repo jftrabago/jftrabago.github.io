@@ -2,42 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style type=text/css>   
-	body   
-	{  
-	height: 125vh;  
-	margin-top: 0px;  
-	padding: 30px;  
-	background-size: cover;  
-	font-family: sans-serif;  
-	}  
-	header {  
-	background-color: none;  
-	position: none;  
-	left: 0;  
-	right: 0;  
-	top: 5px;  
-	height: 30px;  
-	display: flex;  
-	align-items: center;  
-	box-shadow: 0 0 25px 0 none;  
-	}  
-	header * {  
-	display: inline;  
-	}  
-	header li {  
-	margin: 20px;  
-	}  
-	header li a {  
-	color: blue;  
-	text-decoration: none;  
-	}  
-	div {
-	  max-width: 550px;
-	  min-width: 300px;
-	  background-color: white;
-	}
-	</style>   
+	<link rel="stylesheet" type="text/css" media="all" href="main.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons/css/academicons.min.css">
 	
     <meta charset="UTF-8">
 	<!-- LINKS -->
@@ -47,21 +14,17 @@
 
 
 <body>
-	<header>	
-	<font size="+1">	
-	<nav>
-	<a href="jftrabago.github.io">Home</a> |
-	<a href="https://drive.google.com/file/d/1jbHbvVze-FjQspOJSDULz2vC7aZvJg_p/view?usp=share_link">Vitae</a> |
-	<a href="education.html">Education</a> |
-	<a href="research.html">Research</a> |	
-	<a href="recentpapers.html">Papers</a> |
-	<a href="teaching.html">Teaching</a> |
-	<a href="links.html">Links</a> |
-	<a href="events.html">Events</a> |
-	<a href="talks.html">Talks</a> |
-	<a href="contact.html">Contact</a>
-	</nav>
-	</font>		
+	<header class=topnav>		 
+        <a href="home.html">Home</a> 
+        <a href="https://drive.google.com/file/d/1jbHbvVze-FjQspOJSDULz2vC7aZvJg_p/view?usp=share_link" target="_blank">Vitae</a>
+        <a href="education.html">Education</a> 
+        <a href="research.html">Research</a>
+        <a href="recentpapers.html">Papers</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="links.html">Links</a>
+        <a href="events.html">Events</a>
+        <a href="talks.html">Talks</a>
+        <a href="contact.html">Contacts</a>
 	</header>
 	
 	
@@ -69,39 +32,95 @@
 	<div>
 	<!-- LINKS -->
 	<h1>Links</h1>
-	<ul>
+	
+    <table class="navigation">
+        <tr>
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao"><img src="icon/sg.png"  width="80" height="80"/></a>
+            </td>
+
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2"><img src="icon/rg.png"  width="80" height="80"/></a>
+            </td>
+			
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://orcid.org/0000-0003-0971-6307"><img src="icon/id.png"  width="80" height="80"/></a>
+            </td>
+			
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.scopus.com/authid/detail.uri?authorId=56263743100"><img src="icon/sc.png"  width="100" height="100"/></a>
+            </td>
+
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://researchmap.jp/jftrabago"><img src="icon/rm.png"  width="80" height="80"/></a>
+            </td>
+        </tr>
+    </table>
+	
+    <!-- <table class="navigation">
+        <tr>
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao"><i class="ai ai-google-scholar ai-4x"></i></a>
+            </td>
+
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2"><i class="ai ai-researchgate ai-4x"></i></a>
+            </td>
+
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://orcid.org/0000-0003-0971-6307"><i class="ai ai-orcid ai-3x"></i></a>
+            </td>
+
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.scopus.com/authid/detail.uri?authorId=56263743100"><i class="ai ai-scopus ai-4x"></i></a>
+            </td>
+
+            <td class="navigation">
+                <a target="_blank" rel="noopener noreferrer" href="https://researchmap.jp/jftrabago"><img src="rm.png"  width="80" height="80"/></a>
+            </td>
+        </tr>
+    </table> -->
+	
+	
+	<!-- <ul>
 	  <li>
 		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao">GoogleScholar</a>
 	    </p>
 	  </li>
-	  
+
 	  <li>
 		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2">ResearchGate</a>
 	    </p>
 	  </li>
-	  
+
 	  <li>
 		<p>
-			<a target="_blank" rel="noopener noreferrer" href="https://orcid.org/0000-0003-0971-6307">ORCID</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://orcid.org/0000-0003-0971-6307"><i class="fa-brands fa-orcid"></i></a>
+
 	    </p>
 	  </li>
-	  
+
 	  <li>
 		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://www.scopus.com/authid/detail.uri?authorId=56263743100">SCOPUS</a>
 	    </p>
 	  </li>
-	  
+
 	  <li>
 		<p>
 			<a target="_blank" rel="noopener noreferrer" href="https://researchmap.jp/jftrabago">ResearchMap</a>
 	    </p>
 	  </li>
-	</ul>
+	</ul> -->
+	
 	</div>
 
 
+    <footer>
+        &copy; <a href="https://jftrabago.github.io">Julius Fergy Tiongson Rabago</a> 
+        &nbsp;|&nbsp; Last update: August 29, 2024
+    </footer>
 </body>
 </html>
