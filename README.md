@@ -1,55 +1,17 @@
-<!DOCTYPE html>
-<html lang='en'>
+# About Me
 
-<head>
-	<base href=".">
-	<link rel="stylesheet" type="text/css" media="all" href="main.css"/> 
-	
-    <meta charset="UTF-8">
-	<!-- ABOUT ME -->
-    <title>About Me</title>
-</head>
+[Home](home.html) | [Vitae](https://drive.google.com/file/d/1jbHbvVze-FjQspOJSDULz2vC7aZvJg_p/view?usp=share_link) | [Education](education.html) | [Research](research.html) | [Papers](recentpapers.html) | [Teaching](teaching.html) | [Links](links.html) | [Events](events.html) | [Talks](talks.html) | [Contacts](contact.html)
 
-<body>
-	<header class=topnav>		 
-        <a href="home.html">Home</a>
-        <a href="https://drive.google.com/file/d/1jbHbvVze-FjQspOJSDULz2vC7aZvJg_p/view?usp=share_link" target="_blank">Vitae</a>
-        <a href="education.html">Education</a> 
-        <a href="research.html">Research</a>
-        <a href="recentpapers.html">Papers</a>
-        <a href="teaching.html">Teaching</a>
-        <a href="links.html">Links</a>
-        <a href="events.html">Events</a>
-        <a href="talks.html">Talks</a>
-        <a href="contact.html">Contacts</a>
-	</header>
-	
-    <div class="banner">
-        <img src="fergy_photo.png" width=auto height="300">
-        <div class="bottom-right">
-            <th>
-				Hello! I'm <b>Julius Fergy Tiongson Rabago</b>. I am currently a postdoctoral researcher at the <span><a href="https://mathphys.w3.kanazawa-u.ac.jp/e/index.html">Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University</a>.
-			</th>
-			<br>
-			<br>
-			
-			<th>
-			I am also currently an <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a> at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a>.
-			</th>
-			<br>
-			<br>
-			
-			<th>My current research interests include stationary free boundary and free surface problems, moving boundary problems, geometric inverse problems, and applications of shape optimization methods.	
-			</th>
-        </div>
-    </div>
-	
+---
 
-    <footer>
-        &copy; <a href="https://jftrabago.github.io">Julius Fergy Tiongson Rabago</a> 
-        &nbsp;|&nbsp; Last update: August 29, 2024
-    </footer>
+![Fergy's Photo](fergy_photo.png)
 
-</body>
-</html>
+Hello! I'm **Julius Fergy Tiongson Rabago**. I am currently a postdoctoral researcher at the [Faculty of Mathematics and Physics, Institute of Science and Engineering, Kanazawa University](https://mathphys.w3.kanazawa-u.ac.jp/e/index.html).
 
+I am also currently an [Adjunct Assistant Professor](https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago) at [Temple University, Japan Campus](https://www.tuj.ac.jp).
+
+My current research interests include stationary free boundary and free surface problems, moving boundary problems, geometric inverse problems, and applications of shape optimization methods.
+
+---
+
+&copy; [Julius Fergy Tiongson Rabago](https://jftrabago.github.io) | Last update: August 29, 2024
