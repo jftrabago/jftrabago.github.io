@@ -86,7 +86,7 @@ th,td{
 
 /* Webpage Banner */
 .banner {position: relative; font-family: 'Open Sans';}
-.top-right {font-size:2.33em; color: #1d324d; background: none; text-align: center; width: 600px; height: 30px; position: relative; padding: 36px 0 0 0; top: 0px;}
+.top-right {font-size:2.33em; color: #1d324d; background: none; text-align: center; width: 600px; height: 0px; position: relative; padding: 36px 0 0 0; top: 0px;}
 .bottom-right {font-size:17px; color: #1d324d; line-height: auto; width: 600px; height: auto; padding: 0px 27px 27px 0px; text-align: justify; text-justify: inter-word; ; position: absolute; bottom: 0px; right: 0px; text-shadow: none;}
 
 
