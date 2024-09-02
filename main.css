@@ -48,8 +48,8 @@ a:active{color: #e82945;}
 h1,h2,h3,h4{clear:left; color: #1d324d; margin:1.5em 0em 1em 0em; font-family: 'Open Sans'; text-shadow: none;}
 h1{font-size:2em;}
 h2{font-size:1.50em;}
-h3{font-size:1.17em;}
-h4{font-size:1em;}
+h3{font-size:24px;}
+h4{font-size:17px;}
 p{list-style:none; margin:24px auto 24px auto; padding:0px; width:900px; text-align:left;}
 li a, p a {text-decoration:underline; text-decoration-color:#b8860b;}
 ul{list-style: circle; margin:24px auto 24px auto; padding:0px; width:900px; text-align:left;}
@@ -83,12 +83,38 @@ th,td{
     /* UNCOMMENT THIS FOR DEBUGGING THE ALIGNMENT */
     /*border: 1px solid black;*/
 }
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 
 /* Webpage Banner */
-.banner {position: relative; font-family: 'Open Sans';}
-.top-right {font-size:2.33em; color: #1d324d; background: none; text-align: center; width: 600px; height: 0px; position: relative; padding: 36px 0 0 0; top: 0px;}
-.bottom-right {font-size:17px; color: #1d324d; line-height: auto; width: 600px; height: auto; padding: 0px 27px 27px 0px; text-align: justify; text-justify: inter-word; ; position: absolute; bottom: 0px; right: 0px; text-shadow: none;}
+/*.banner {position: relative; font-family: 'Open Sans';}
+.top-right {font-size:2.33em; font-family: 'Open Sans'; color: #1d324d; background: none; text-align: center; width: 600px; height: 0px; position: relative; padding: 36px 0 0 0; top: 0px;}
+.bottom-right {font-size:17px; font-family: 'Open Sans'; color: #1d324d; line-height: auto; width: 600px; height: auto; padding: 0px 27px 27px 0px; text-align: justify; text-justify: inter-word; ; position: absolute; bottom: 0px; right: 0px; text-shadow: none;}
+*/
 
+/* Create two unequal columns that floats next to each other for home page */
+.column {
+  float: left;
+  padding: 20px; 
+}
+
+.left {
+  width: 40%;
+}
+
+.right {
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /* Title Page */
 .name1{color: #b2132e; text-shadow: none; font-size:17px;} 
@@ -151,6 +177,10 @@ td.navigation{font-size:1em; white-space:nowrap; width:20%; text-align:center; v
   color: white;
 }
 
+
+* {
+  box-sizing: border-box;
+}
 
 
 footer{font-size:0.875em; margin-top:12em; text-align:center;}
