@@ -95,22 +95,6 @@ div {
 .bottom-right {font-size:17px; font-family: 'Open Sans'; color: #1d324d; line-height: auto; width: 600px; height: auto; padding: 0px 27px 27px 0px; text-align: justify; text-justify: inter-word; ; position: absolute; bottom: 0px; right: 0px; text-shadow: none;}
 */
 
-#wrap{
-  width: 980px;
-  margin: 10px auto;
-}
-#left_col {
-   float: left;
-   width: 300px;
-}
-#right_col{
-  float: right;
-  width: 600px;
-}
-/*a {
-  display: block;
-}*/
-
 /* Title Page */
 .name1{color: #b2132e; text-shadow: none; font-size:17px;} 
 .name2{color: #1d324d; text-shadow: none; font-size:17px;} 
