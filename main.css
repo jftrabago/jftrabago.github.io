@@ -107,6 +107,8 @@ td.navigation{font-size:1em; white-space:nowrap; width:20%; text-align:center; v
 .topnav {
   overflow: hidden;
   background-color: #1d324d;
+  position: fixed;
+  top: 0;
 }
 
 .topnav a {
