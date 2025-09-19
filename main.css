@@ -27,13 +27,33 @@
     vertical-align:baseline;
 }
 
+@font-face {
+  font-family: 'Avenir'; /* Choose a name for your font */
+  src: url('../fonts/Avenir-Regular.woff2') format('woff2'), /* Path to your font files */
+       url('../fonts/Avenir-Regular.woff') format('woff'),
+       url('../fonts/Avenir-Regular.ttf') format('truetype');
+  font-weight: normal; /* Define font weight if applicable */
+  font-style: normal; /* Define font style if applicable */
+  /* Add other font weights and styles if you have different variations (e.g., Avenir-Bold.woff2) */
+}
+
+/*@font-face {
+  font-family: 'Avenir';
+  src: url('../fonts/Avenir-Bold.woff2') format('woff2'),
+       url('../fonts/Avenir-Bold.woff') format('woff'),
+       url('../fonts/Avenir-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}*/
+
 body{
     background-color: none;
     background-size: cover;
     background-attachment: fixed;
     color: #1d324d; 
     text-align:left;
-    font-family:'Open Sans',sans-serif;
+/*    font-family:'Open Sans',sans-serif;*/
+	font-family:'Avenir', sans-serif;
     font-size:1em;
     line-height:1.5em;
     margin: 60px auto;
@@ -45,7 +65,8 @@ a.current{color: #b8860b;}
 a.current:hover{color: #e82945;}
 a:hover{color: #FF00FF;}
 a:active{color: #e82945;}
-h1,h2,h3,h4{clear:left; color: #1d324d; margin:1.5em 0em 1em 0em; font-family: 'Open Sans'; text-shadow: none;}
+/*h1,h2,h3,h4{clear:left; color: #1d324d; margin:1.5em 0em 1em 0em; font-family: 'Open Sans'; text-shadow: none;}*/
+h1,h2,h3,h4{clear:left; color: #1d324d; margin:1.5em 0em 1em 0em; font-family: 'Avenir'; text-shadow: none;}
 h1{font-size:2em;}
 h2{font-size:1.50em;}
 h3{font-size:24px;}
@@ -57,7 +78,7 @@ ul li{list-style: circle; margin:0px auto 0px auto; padding:0px; text-align:left
 ol{margin:24px auto 24px auto; padding:0px; width:900px; text-align:left;}
 ol li{margin:0px auto 0px auto; padding:0px; text-align:left;}
 i,em{font-style:italic;}
-b,strong{font-weight:bold;}
+b,strong{font-weight:normal; color:#1d324d;}
 sup{
     vertical-align: super;
     font-size: 0.8em;
