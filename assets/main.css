@@ -27,7 +27,7 @@ legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}t
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 /* End extract */
 
-html,body{font-family:"Avenir";font-size:15px;line-height:1.5}html{overflow-x:hidden}
+html,body{text-align: justify;font-family:"Avenir";font-size:15px;line-height:1.5}html{overflow-x:hidden}
 h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}
 .myDesign-serif{font-family:"Avenir"}.myDesign-sans-serif{font-family:sans-serif}.myDesign-cursive{font-family:cursive}.myDesign-monospace{font-family:monospace}
 h1,h2,h3,h4,h5,h6{font-family:"Avenir",sans-serif;font-weight:400;margin:10px 0}.myDesign-wide{letter-spacing:4px}
