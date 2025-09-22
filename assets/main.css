@@ -78,7 +78,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .myDesign-container:after,.myDesign-container:before,.myDesign-panel:after,.myDesign-panel:before,.myDesign-row:after,.myDesign-row:before,.myDesign-row-padding:after,.myDesign-row-padding:before,
 .myDesign-cell-row:before,.myDesign-cell-row:after,.myDesign-clear:after,.myDesign-clear:before,.myDesign-bar:before,.myDesign-bar:after{content:"";display:table;clear:both}
 .myDesign-col,.myDesign-half,.myDesign-third,.myDesign-twothird,.myDesign-threequarter,.myDesign-quarter{float:left;width:100%}
-.myDesign-col.s1{width:8.33333%}.myDesign-col.s2{width:16.66666%}.myDesign-col.s3{width:24.99999%}.myDesign-col.s4{width:33.33333%}
+.myDesign-col.s0{width:14.2857%}.myDesign-col.s1{width:8.33333%}.myDesign-col.s2{width:16.66666%}.myDesign-col.s3{width:24.99999%}.myDesign-col.s4{width:33.33333%}
 .myDesign-col.s5{width:41.66666%}.myDesign-col.s6{width:49.99999%}.myDesign-col.s7{width:58.33333%}.myDesign-col.s8{width:66.66666%}
 .myDesign-col.s9{width:74.99999%}.myDesign-col.s10{width:83.33333%}.myDesign-col.s11{width:91.66666%}.myDesign-col.s12{width:99.99999%}
 @media (min-width:601px){.myDesign-col.m1{width:8.33333%}.myDesign-col.m2{width:16.66666%}.myDesign-col.m3,.myDesign-quarter{width:24.99999%}.myDesign-col.m4,.myDesign-third{width:33.33333%}
