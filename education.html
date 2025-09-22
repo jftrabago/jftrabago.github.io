@@ -1,66 +1,135 @@
-<!-- Basic HTML Structure -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" media="all" href="main.css"/>
-	<link rel="shortcut icon" type="image/png" href="icon/fergy.png"/>
-    <meta name="description" content="My Webpage">
-    <meta name="resource-type" content="document">
-    <meta name="distribution" content="global">
-    <meta name="KeyWords" content="Fergy">
-	
-    <meta charset="UTF-8">
-	<!-- EDUCATION -->
-    <title>Education</title>
+<title>Julius Fergy Tiongson Rabago</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 </head>
 
-
 <body>
-	<header class=topnav>		 
-        <a href="index.html">Home</a>
-        <!-- <a href="https://drive.google.com/file/d/1jbHbvVze-FjQspOJSDULz2vC7aZvJg_p/view?usp=share_link" target="_blank">Vitae</a> -->
-		<a href="cv/Rabago_cv.pdf" target="_blank">Vitae</a>
-        <a href="education.html">Education</a> 
-        <a href="research.html">Research</a>
-        <a href="recentpapers.html">Papers</a>
-        <a href="teaching.html">Teaching</a>
-        <a href="links.html">Links</a>
-        <a href="events.html">Events</a>
-        <a href="talks.html">Talks</a>
-        <a href="contact.html">Contacts</a>
-	</header>
-	
-	<div style="padding:10px;margin-top:10px;">
-	<!-- EDUCATION -->
-    <h1>Education</h1>
-	<ul>
-	  	<li> 	<p>	<b>PhD</b> Informatics (2020) <br />
-					<font color="fuchsia"> <i>	Nagoya University, </i> Nagoya, Japan </font> <br />
-					<font color="blue"> 2017.10 - 2020.09 </font>
-				</p>
-		</li>
-	  	<li> 	<p>	<b>MSc</b> Mathematics (2017) <br />
-					<font color="fuchsia"> <i>	University of the Philippines Baguio, </i> Baguio City, Philippines </font> <br />
-					<font color="blue">2015.01 – 2017.01 </font>
-				</p>
-		</li>
-	  	<li> 	<p>	<b>PMAM</b> Actuarial Science (2015) <br />
-					<font color="fuchsia"> <i>	University of the Philippines Diliman, </i> Quezon City, Philippines </font> <br />
-					<font color="blue">2011.06 – 2015.01 </font>
-				</p>
-		</li>
-	  	<li> 	<p>	<b>BSc</b> Mathematics (2010) <br />
-					<font color="fuchsia"> <i>	University of the Philippines Baguio, </i> Baguio City, Philippines </font> <br />
-					<font color="blue">2007.06 – 2010.10 </font>
-				</p>
-		</li>
-	</ul>
-	</div>
-	
 
-    <footer>
-        &copy; <a href="https://jftrabago.github.io">Julius Fergy Tiongson Rabago</a> 
-        &nbsp;|&nbsp; Last update: December 20, 2024
-    </footer>
+<!-- Sidebar/menu -->
+<nav class="myDesign-sidebar myDesign-amber myDesign-collapse myDesign-top myDesign-large" style="z-index:3;width:200px;font-weight:normal;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="myDesign_close()" class="myDesign-button myDesign-hide-large myDesign-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="myDesign-container">
+    <h3 class="myDesign-padding-64"><b>J</b>ulius<br><b>F</b>ergy<br><b>T</b>iongson<br><b>R</b>abago</h3>
+  </div>
+  </div>
+  <div class="myDesign-bar-block">
+    <a href="index.html" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Home</a> 
+    <a href="cv/Rabago_cv.pdf" target="_blank" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Vitae</a>
+    <a href="education.html" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Education</a> 
+    <a href="research.html" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Research</a> 
+    <a href="recentpapers.html" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Papers</a> 
+    <a href="teaching.html" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Teaching</a> 
+    <a href="events.html" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Events</a> 
+    <a href="talks.html" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Talks</a> 
+    <a href="contacts.html" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Contacts</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="myDesign-container myDesign-top myDesign-hide-large myDesign-myColor myDesign-xlarge">
+  <a href="javascript:void(0)" class="myDesign-button myDesign-myColor myDesign-margin-right" onclick="myDesign_open()">☰</a>
+  <span>Julius Fergy RABAGO</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="myDesign-overlay myDesign-hide-large" onclick="myDesign_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<!-- ================================================================================= -->
+<!-- ================================================================================= -->
+<!-- ================================================================================= --> 
+<div class="myDesign-main" style="margin-left:250px;margin-right:40px">
+
+  
+
+
+<!-- EDUCATION -->
+<div class="myDesign-container" id="contact" style="margin-top:75px">	  
+		    
+  <!-- !RECENT TALKS! -->
+  <h1 class="myDesign-xxxlarge myDesign-text-myColor"><b>Education</b></h1>
+  
+  <div class="myDesign-row">
+    <div class="myDesign-col m12 l12">
+      <ul class="myDesign-ul">
+		  <li>
+		    <p><b>PhD</b> Informatics (2020)<br>
+		      <i>Nagoya University,</i> Nagoya, Japan<br>
+		      2017.10 – 2020.09
+		    </p>
+		  </li>
+		  <li>
+		    <p><b>MSc</b> Mathematics (2017)<br>
+		      <i>University of the Philippines Baguio,</i> Baguio City, Philippines<br>
+		      2015.01 – 2017.01
+		    </p>
+		  </li>
+		  <li>
+		    <p><b>PMAM</b> Actuarial Science (2015)<br>
+		      <i>University of the Philippines Diliman,</i> Quezon City, Philippines<br>
+		      2011.06 – 2015.01
+		    </p>
+		  </li>
+		  <li>
+		    <p><b>BSc</b> Mathematics (2010)<br>
+		      <i>University of the Philippines Baguio,</i> Baguio City, Philippines<br>
+		      2007.06 – 2010.10
+		    </p>
+		  </li>
+		  
+      </ul>
+    </div>
+  </div>
+  
+
+
+</div>
+
+
+
+  
+ 
+<!-- ================================================================================= -->
+<!-- ================================================================================= -->
+<!-- ================================================================================= -->   
+<!-- End page content -->
+</div>
+
+
+
+
+
+
+
+
+<!-- MAIN.CSS Container -->
+<div class="myDesign-light-grey myDesign-container myDesign-padding-32" style="margin-top:75px;padding-right:58px"><p class="myDesign-right">&copy; <a href="https://jftrabago.github.io" title="MAIN.CSS" target="_blank" class="myDesign-hover-opacity">Julius Fergy Tiongson RABAGO &nbsp;|&nbsp; Last update: December 20, 2025 </a></p></div>
+
+<script>
+// Script to open and close sidebar
+function myDesign_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function myDesign_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
 </body>
 </html>
