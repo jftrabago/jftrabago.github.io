@@ -1317,31 +1317,35 @@
             &nbsp;|&nbsp;
             Created on July 16, 2024
             &nbsp;|&nbsp;
-            Last updated on <span id="jst-time"></span>
+            Last updated on <span id="lastModifiedDate"></span>
         </a>
     </p>
 
 </div>
 
 <script>
-const now = new Date();
+function displayLastModified() {
+    const lastModified = new Date(document.lastModified);
 
-const date = now.toLocaleDateString("en-US", {
-    timeZone: "Asia/Tokyo",
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-});
+    const date = lastModified.toLocaleDateString("en-US", {
+        timeZone: "Asia/Tokyo",
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
 
-const time = now.toLocaleTimeString("en-GB", {
-    timeZone: "Asia/Tokyo",
-    hour: "2-digit",
-    minute: "2-digit"
-});
+    const time = lastModified.toLocaleTimeString("en-GB", {
+        timeZone: "Asia/Tokyo",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
 
-document.getElementById("jst-time").textContent =
-    `${date} | ${time} JST`;
+    document.getElementById("lastModifiedDate").textContent =
+        `${date} | ${time} JST`;
+}
+
+window.onload = displayLastModified;
 </script>
 
 
