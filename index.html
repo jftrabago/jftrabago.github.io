@@ -1324,30 +1324,24 @@
 </div>
 
 <script>
-function updateJST() {
-    const now = new Date();
+const now = new Date();
 
-    const date = now.toLocaleDateString("en-US", {
-        timeZone: "Asia/Tokyo",
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    });
+const date = now.toLocaleDateString("en-US", {
+    timeZone: "Asia/Tokyo",
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+});
 
-    const time = now.toLocaleTimeString("en-GB", {
-        timeZone: "Asia/Tokyo",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit"
-    });
+const time = now.toLocaleTimeString("en-GB", {
+    timeZone: "Asia/Tokyo",
+    hour: "2-digit",
+    minute: "2-digit"
+});
 
-    document.getElementById("jst-time").textContent =
-        `${date} | ${time} JST`;
-}
-
-updateJST();
-setInterval(updateJST, 1000);
+document.getElementById("jst-time").textContent =
+    `${date} | ${time} JST`;
 </script>
 
 
