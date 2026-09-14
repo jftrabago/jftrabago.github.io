@@ -240,7 +240,8 @@
 			</li>
 		</ul>
 		
-		<hr style="margin: 1em 0; border: 0; border-top: 2px dashed #ccc;">
+		<!-- <hr style="margin: 1em 0; border: 0; border-top: 2px dashed #ccc;"> -->
+		<hr style="margin: 1em 0; border: 0; border-top: 1px solid #ccc;">
 		
 			
 	    <div class="myDesign-col m12 l12">
@@ -372,48 +373,65 @@
 	
 
 
-  <div class="myDesign-row">
-    <div class="myDesign-col m12 l12">
-      <ul class="myDesign-ul">
-	  	<li>	
-		<p> 
-		<b>Novel hybrid methods for accurate shape reconstruction: advancing theory and computational solutions</b><br /> 
-		<em>Co-Investigator</em><br />
-		Grants-in-aid for JSPS Postdoctoral Fellows<br />
-			<font color="myDesign-KanazawaU">Japan Society for Promotion of Science</font> <br />
-			<a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-24KF0221">KAKENHI Grant Number JP24KF0221</a><br />
-			<font color="myDesign-KanazawaU"> JPY 2,400,000 </font><br>
-			2024.11.01 - 2027.03.31 (2026.10.31)
-		</p> 
-		</li>
+    <div class="myDesign-row">
+      <div class="myDesign-col m12 l12">
+        <ul>
+  	  	<li>	
+  		<p> 
+  		<b id="project1Toggle" onclick="toggleProject('project1Content','project1Arrow')" style="cursor:pointer; user-select:none;">Novel hybrid methods for accurate shape reconstruction: advancing theory and computational solutions <span id="project1Arrow" style="font-size:0.7em;">&#9654;</span></b><br />
+  		<span id="project1Content" style="display:none;">
+  		<em>Co-Investigator</em><br />
+  		Grants-in-aid for JSPS Postdoctoral Fellows<br />
+  			<font color="myDesign-KanazawaU">Japan Society for Promotion of Science</font> <br />
+  			<a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-24KF0221">KAKENHI Grant Number JP24KF0221</a><br />
+  			<font color="myDesign-KanazawaU"> JPY 2,400,000 </font><br>
+  			2024.11.01 - 2027.03.31 (2026.10.31)
+  		</span>
+  		</p> 
+  		</li>
 		
-	  	<li>	
-		<p> 
-		<b>Development of effective and accurate non-conventional solution methods for shape inverse problems: theory and numerics</b><br /> 
-		<em>Principal Investigator</em><br />
-		Grants-in-aid for Early-Career Scientists<br />
-			<font color="myDesign-KanazawaU">Japan Society for Promotion of Science</font> <br />
-			<a href="https://nrid.nii.ac.jp/nrid/1000010897995/">KAKENHI Grant Number JP23K13012</a><br />
-			<font color="myDesign-KanazawaU"> JPY 3,120,000 </font><br>
-			2023.04.01 - 2027.03.31 (2024.10.31)<br>
-			(Discontinued as of October 31, 2024, due to the JSPS Postdoctoral Fellowship.)
-		</p>
-		</li>
+  	  	<li>	
+  		<p> 
+  		<b id="project2Toggle" onclick="toggleProject('project2Content','project2Arrow')" style="cursor:pointer; user-select:none;">Development of effective and accurate non-conventional solution methods for shape inverse problems: theory and numerics <span id="project2Arrow" style="font-size:0.7em;">&#9654;</span></b><br />
+  		<span id="project2Content" style="display:none;">
+  		<em>Principal Investigator</em><br />
+  		Grants-in-aid for Early-Career Scientists<br />
+  			<font color="myDesign-KanazawaU">Japan Society for Promotion of Science</font> <br />
+  			<a href="https://nrid.nii.ac.jp/nrid/1000010897995/">KAKENHI Grant Number JP23K13012</a><br />
+  			<font color="myDesign-KanazawaU"> JPY 3,120,000 </font><br>
+  			2023.04.01 - 2027.03.31 (2024.10.31)<br>
+  			(Discontinued as of October 31, 2024, due to the JSPS Postdoctoral Fellowship.)
+  		</span>
+  		</p>
+  		</li>
 		
-	  	<li>	
-		<p> 
-		<b>The Analysis of Bernoulli free boundary problem using the velocity method and second-order perturbation of identity technique</b><br /> 
-		<em>Research Assistant</em><br />
-		Emerging Interdisciplinary Research<br />
-			<font color="myDesign-KanazawaU">Office of the University of the Philippines Vice President for Academic Affairs</font> <br />
-			<a href=" ">OVPAA-EIDR-C05-015</a><br />
-			2014.08.01 - 2016.07.31
-			<!-- <font color="myDesign-KanazawaU"> JPY 3,120,000 </font> -->
-		</p> 
-		</li>
-      </ul>
+  	  	<li>	
+  		<p> 
+  		<b id="project3Toggle" onclick="toggleProject('project3Content','project3Arrow')" style="cursor:pointer; user-select:none;">The Analysis of Bernoulli free boundary problem using the velocity method and second-order perturbation of identity technique <span id="project3Arrow" style="font-size:0.7em;">&#9654;</span></b><br />
+  		<span id="project3Content" style="display:none;">
+  		<em>Research Assistant</em><br />
+  		Emerging Interdisciplinary Research<br />
+  			<font color="myDesign-KanazawaU">Office of the University of the Philippines Vice President for Academic Affairs</font> <br />
+  			<a href=" ">OVPAA-EIDR-C05-015</a><br />
+  			2014.08.01 - 2016.07.31
+  			<!-- <font color="myDesign-KanazawaU"> JPY 3,120,000 </font> -->
+  		</span>
+  		</p> 
+  		</li>
+        </ul>
+      </div>
     </div>
-  </div>
+
+    <script>
+    function toggleProject(contentId, arrowId) {
+      var content = document.getElementById(contentId);
+      var arrow = document.getElementById(arrowId);
+      var isHidden = content.style.display === 'none';
+      content.style.display = isHidden ? '' : 'none';
+      arrow.innerHTML = isHidden ? '&#9660;' : '&#9654;';
+    }
+    </script>
+	
   	
 	
     <!-- Journall Referee -->
@@ -551,12 +569,11 @@
 			
 			
   <!-- !SELECTED RECENT PAPERS! -->
-  <h2>Selected Recent Papers</h2>
-  
-  
-  
-  
-  <div class="myDesign-row">
+  <h2 id="selectedPapersToggle" onclick="toggleSelectedPapers()" style="cursor:pointer; user-select:none;">
+    Selected Recent Papers <span id="selectedPapersArrow" style="font-size:0.7em;">&#9654;</span>
+  </h2>
+
+  <div class="myDesign-row" id="selectedPapersContent" style="display:none;">
     <div class="myDesign-col m12 l12">
       <ul class="myDesign-ul">
 	  	<ol reversed>	
@@ -802,13 +819,17 @@
       </ul>
     </div>
   </div>
-  
 
+  <script>
+  function toggleSelectedPapers() {
+    var content = document.getElementById('selectedPapersContent');
+    var arrow = document.getElementById('selectedPapersArrow');
+    var isHidden = content.style.display === 'none';
+    content.style.display = isHidden ? '' : 'none';
+    arrow.innerHTML = isHidden ? '&#9660;' : '&#9654;';
+  }
+  </script>
 
-
-
-	
-</div>
   
  
  
@@ -1067,7 +1088,7 @@
       arrow.innerHTML = isHidden ? '&#9660;' : '&#9654;';
     }
     </script>
-	
+</div>	
 
 
 
@@ -1079,6 +1100,7 @@
  
  
  
+
 <!-- !PAGE CONTENT! -->
 <!-- ================================================================================= -->
 <!-- ================================================================================= -->
@@ -1088,44 +1110,52 @@
 		    
   <h1 class="myDesign-text-myColor"><b>Teaching</b></h1>
   
-  <div class="myDesign-row">
     <div class="myDesign-col m12 l12">
-      <ul class="myDesign-ul">
+      <ul>
 		  <li>
-		      <p><strong>Part-Time Lecturer</strong>, Graduate Course: <em>Applied Analysis</em><br />
+		      <p><span id="teach1Toggle" onclick="toggleTeaching('teach1Content','teach1Arrow')" style="cursor:pointer; user-select:none;"><strong>Part-Time Lecturer</strong>, Graduate Course: <em>Applied Analysis</em> <span id="teach1Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
+		      <span id="teach1Content" style="display:none;">
 		      Kanazawa University, Kanazawa City, Japan <br />
 		      2026.04.06 - 2025.06.04, Q1 <br />
 			  2025.04.11 - 2025.05.30, Q1 <br />
 		      2024.04.11 - 2024.05.30, Q1 <br />
 		      2023.04.06 - 2023.06.01, Q1
+		      </span>
 		      </p>
 		  </li>
 
 		  <li>
-		      <p><strong>Adjunct Assistant Professor</strong>, Undergraduate Courses: <em>College Algebra</em><br />
+		      <p><span id="teach2Toggle" onclick="toggleTeaching('teach2Content','teach2Arrow')" style="cursor:pointer; user-select:none;"><strong>Adjunct Assistant Professor</strong>, Undergraduate Courses: <em>College Algebra</em> <span id="teach2Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
+		      <span id="teach2Content" style="display:none;">
 		      Temple University, Japan Campus, Setagaya City, Japan <br />
 		      2024.08.26 - 2024.12.18 (2024.10.31), Fall 2024 <br />
 		      2024.05.20 - 2024.08.07, Summer 2024 <br />
 		      2024.01.08 - 2024.05.01, Spring 2024
+		      </span>
 		      </p>
 		  </li>
 
 		  <li>
-		      <p><strong>Lecturer</strong>, Undergraduate Course: <em>Pre-Calculus</em><br />
+		      <p><span id="teach3Toggle" onclick="toggleTeaching('teach3Content','teach3Arrow')" style="cursor:pointer; user-select:none;"><strong>Lecturer</strong>, Undergraduate Course: <em>Pre-Calculus</em> <span id="teach3Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
+		      <span id="teach3Content" style="display:none;">
 		      University of the Philippines Baguio, Baguio City, Philippines <br />
 		      2015.01.22 - 2015.06.08
+		      </span>
 		      </p>
 		  </li>
 
 		  <li>
-		      <p><strong>Instructor</strong>, Undergraduate Courses: <em>Mathematical Biology, Elementary Analysis, and Calculus</em><br />
+		      <p><span id="teach4Toggle" onclick="toggleTeaching('teach4Content','teach4Arrow')" style="cursor:pointer; user-select:none;"><strong>Instructor</strong>, Undergraduate Courses: <em>Mathematical Biology, Elementary Analysis, and Calculus</em> <span id="teach4Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
+		      <span id="teach4Content" style="display:none;">
 		      Central Luzon State University, Science City of Muñoz, Nueva Ecija, Philippines <br />
 		      2013.11.12 - 2014.04.30, AY 2013-2014, 2nd Semester
+		      </span>
 		      </p>
 		  </li>
 
 		  <li>
-			  <p><strong>Lecturer</strong>, Undergraduate Courses: <em>Elementary Analysis, Calculus, and Pre-Calculus</em><br />
+			  <p><span id="teach5Toggle" onclick="toggleTeaching('teach5Content','teach5Arrow')" style="cursor:pointer; user-select:none;"><strong>Lecturer</strong>, Undergraduate Courses: <em>Elementary Analysis, Calculus, and Pre-Calculus</em> <span id="teach5Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
+			  <span id="teach5Content" style="display:none;">
 			  Central Luzon State University, Science City of Muñoz, Nueva Ecija, Philippines <br />
 			  2013.06.10 - 2013.10.18, AY 2013-2014, 1st Semester <br />
 			  2012.11.19 - 2013.03.27, AY 2012-2013, 2nd Semester <br />
@@ -1134,15 +1164,23 @@
 			  2011.11.08 - 2012.03.23, AY 2011-2012, 2nd Semester <br />
 			  2011.06.06 - 2011.10.21, AY 2011-2012, 1st Semester <br />
 			  2011.04.11 - 2011.05.27, AY 2010-2011, Summer
+			  </span>
 			  </p>
 		  </li>
       </ul>
     </div>
-  </div>
-  
-
-
 </div>
+
+<script>
+function toggleTeaching(contentId, arrowId) {
+  var content = document.getElementById(contentId);
+  var arrow = document.getElementById(arrowId);
+  var isHidden = content.style.display === 'none';
+  content.style.display = isHidden ? '' : 'none';
+  arrow.innerHTML = isHidden ? '&#9660;' : '&#9654;';
+}
+</script>
+
  
  
  
