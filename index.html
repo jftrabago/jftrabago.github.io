@@ -4,1479 +4,850 @@
 <title>Julius Fergy Tiongson Rabago</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/main.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <link rel="shortcut icon" type="image/png" href="icon/fergy.png"/>
+<!--
+  DEPLOYMENT NOTE: this preview keeps the stylesheet inline so you can see it
+  rendered here. On your site, move the <style> block below into
+  assets/main.css (use the "main.css — Minimalist Rewrite" canvas) and add:
+  <link rel="stylesheet" href="assets/main.css">
+-->
+<style>
+
+/* main.css — minimalist academic homepage (final)
+   Style reference: polaris.s.kanazawa-u.ac.jp, lmbp.uca.fr/~munch
+   One section visible at a time; bold reserved for section headings. */
+
+:root {
+  --text: #2e2e2e;      /* body text, soft black */
+  --dark: #222222;      /* publication titles */
+  --muted: #505050;     /* authors, dates, descriptions */
+  --faint: #6e6e6e;     /* journal references */
+  --line: #e9e9e3;      /* hairlines */
+  --accent: #1d324d;    /* Kanazawa University navy: headings, own name */
+  --link: #35618f;      /* soft steel blue: links */
+  --maxw: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: #efeee8;   /* soft warm gray — the margin on both sides */
+}
+
+/* centered text strip floating on the gray surround */
+main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 3rem 2.75rem 4rem;
+  background: #fdfdfa;                 /* the strip: warm off-white */
+  border-left: 1px solid #e0ded5;      /* hairline edges of the strip */
+  border-right: 1px solid #e0ded5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;                   /* strip always reaches the bottom */
+}
+
+/* --- show one section at a time (no JavaScript) ---
+   The nav links are anchors: #about, #education, #research, ...
+   Modern browsers show #about by default via :has();
+   older browsers fall back to the @supports block below. */
+section { display: none; }
+section:target { display: block; }
+@supports selector(:has(a)) {
+  body:not(:has(section:target)) #about { display: block; }
+}
+@supports not selector(:has(a)) {
+  #about { display: block; }
+}
+
+h1 { font-size: 1.9rem; font-weight: 600; margin: 0 0 0.2rem; color: var(--dark); }
+h2 { font-size: 1.3rem; font-weight: 600; margin: 0.5rem 0 1rem; color: var(--accent); }
+h3 { font-size: 1.08rem; font-weight: 600; margin: 2rem 0 0.6rem; color: var(--accent); }
+section > h2:first-child { margin-top: 0; }
+
+p { margin: 0 0 1rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.4rem; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+.affiliation { color: var(--muted); margin: 0 0 0.4rem; }
+
+/* top navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.9rem;
+  margin: 0 0 2rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+nav a { color: var(--accent); font-size: 0.95em; }
+
+/* portrait photo */
+img.portrait {
+  float: right;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 0 1rem 1.5rem;
+}
+figure.research { margin: 0 0 1rem; }
+figure.research img { width: 130px; max-width: 100%; height: auto; }
+
+/* news list */
+ul.news { list-style: none; padding-left: 0; }
+ul.news > li { margin-bottom: 0.9rem; }
+.news .date { color: var(--muted); }
+.new { color: #a2483a; font-size: 0.82em; letter-spacing: 0.04em; }
+
+/* --- publications: color hierarchy, no bold, easy to scan ---
+   Visual order: title, authors, reference, links (reordered via flex). */
+.pub {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0;
+  margin: 0 0 0.2rem;
+  border-bottom: 1px solid var(--line);
+}
+.pub .title   { order: 1; color: var(--dark); }
+.pub .authors { order: 2; color: var(--muted); font-size: 0.98em; margin-top: 0.15rem; }
+.pub .refs    { order: 3; color: var(--faint); font-size: 0.95em; }
+.pub .refs em { font-style: italic; }
+.pub .links   { order: 4; color: var(--link); font-size: 0.9rem; margin-top: 0.2rem; }
+
+/* own name in author lists: navy, not bold */
+.me { color: var(--accent); }
+/* "Invited" tag in talks: italic navy, not bold */
+.invited { color: var(--accent); font-style: italic; }
+
+/* project and course titles: navy, not bold */
+.ptitle { color: var(--accent); margin: 1.4rem 0 0.25rem; }
+.ptitle + .pdesc, .ptitle + div { margin-top: 0; }
+.pdesc { color: var(--muted); margin: 0 0 0.6rem; }
+.pdesc p { margin: 0 0 0.4rem; }
+
+/* journal refereeing: two columns on wide screens */
+ul.journals { columns: 2; column-gap: 2.5rem; }
+
+/* contact */
+.contact-cols { display: flex; flex-wrap: wrap; gap: 0 3rem; }
+.contact-cols > div { flex: 1 1 280px; }
+address { font-style: normal; }
+
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+
+footer {
+  margin-top: auto;      /* keeps the footer at the bottom of the strip */
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* narrow screens: the strip fills the viewport edge-to-edge */
+@media (max-width: 720px) {
+  main {
+    border-left: none;
+    border-right: none;
+    padding: 2.5rem min(24px, 6vw) 3rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 480px) {
+  body { font-size: 1rem; }
+  h1 { font-size: 1.6rem; }
+  img.portrait { float: none; display: block; margin: 0 auto 1rem; width: 130px; }
+  ul.journals { columns: 1; }
+}
+
+/* print: show every section, no strip */
+@media print {
+  nav { display: none; }
+  section { display: block !important; }
+  body, main { background: #fff; }
+  main { border: none; min-height: auto; }
+  a, .me, .ptitle { color: var(--text); }
+}
+</style>
 </head>
 
 <body>
+<main>
 
-<!-- Sidebar/menu -->
-<nav class="myDesign-sidebar myDesign-amber myDesign-collapse myDesign-top myDesign-large" style="z-index:3;width:200px;font-weight:normal;" id="mySidebar"><br>
-  <a href="javascript:void(0)" onclick="myDesign_close()" class="myDesign-button myDesign-hide-large myDesign-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-	<div class="myDesign-container">
-		<h3 class="myDesign-padding-64"><b>J</b>ulius<br><b>F</b>ergy<br><b>T</b>iongson<br><b>R</b>abago</h3>
-	</div>
-	<div class="myDesign-bar-block">
-	  <a href="#about" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">About</a>
-	  <a href="cv/Rabago_cv.pdf" target="_blank" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Vitae</a>
-	  <a href="#education" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Education</a> 
-	  <a href="#research" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Research</a>
-	  <a href="#papers" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Papers</a>
-	  <a href="#talks" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Talks</a>
-	  <a href="#teaching" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Teaching</a>
-	  <a href="#events" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Events</a>
-	  <a href="#contacts" onclick="myDesign_close()" class="myDesign-bar-item myDesign-button myDesign-hover-white">Contact</a>
-	</div>
-</nav>
-
-
-<!-- Top menu on small screens -->
-<header class="myDesign-container myDesign-top myDesign-hide-large myDesign-myColor myDesign-xlarge">
-  <a href="javascript:void(0)" class="myDesign-button myDesign-myColor myDesign-margin-right" onclick="myDesign_open()">☰</a>
-  <span>Julius Fergy RABAGO</span>
+<header>
+  <h1>Julius Fergy Tiongson Rabago</h1>
+  <p class="affiliation">Specially Appointed Assistant Professor, Kanazawa University, Japan</p>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="cv/Rabago_cv.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#papers">Papers</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contacts">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="myDesign-overlay myDesign-hide-large" onclick="myDesign_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <img src="fergy_photo.png" alt="Portrait of Julius Fergy Rabago" class="portrait">
+	<p>
+	  Hello! I'm Fergy. I am a Specially Appointed Assistant Professor at the
+	  <a href="https://mathphys.w3.kanazawa-u.ac.jp/hpwp/en/">Faculty of Mathematics and Physics, Kanazawa University</a>.
+	  From November 2024 to October 2026, I was a JSPS Postdoctoral Fellow mentored by
+	  <a href="https://ridb.kanazawa-u.ac.jp/public/detail_en.php?kaken=70263358">Professor Masato Kimura</a>.
+	  Before that, I was a Postdoctoral Researcher working with
+	  <a href="https://ridb.kanazawa-u.ac.jp/public/detail_en.php?id=4524">Professor Hirofumi Notsu</a>
+	  at the same faculty. I also served as an
+	  <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a>
+	  at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a> from January to October 2024.
+	</p>
+  <p>
+    My current research interests include stationary free boundary and free surface problems,
+    moving boundary problems, geometric inverse problems, and applications of shape optimization methods.
+  </p>
+  <p class="links">
+    <a href="mailto:jftrabago@gmail.com">Email</a> ·
+    <a target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao">Google Scholar</a> ·
+    <a target="_blank" rel="noopener noreferrer" href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2">ResearchGate</a> ·
+    <a target="_blank" rel="noopener noreferrer" href="https://orcid.org/0000-0003-0971-6307">ORCID</a> ·
+    <a target="_blank" rel="noopener noreferrer" href="https://www.scopus.com/authid/detail.uri?authorId=56263743100">Scopus</a> ·
+    <a target="_blank" rel="noopener noreferrer" href="https://researchmap.jp/jftrabago">researchmap</a>
+  </p>
 
-<!-- !PAGE CONTENT! -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= --> 
-<div class="myDesign-main" style="margin-left:250px;margin-right:40px">
+<!-- NEWS -->
+  <h3>News</h3>
+  <ul class="news">
+    <li>
+      <span class="date">2026.09.14</span> <span class="new">New</span><br>
+      <a href="https://jftrabago.github.io/WMANP/">35th Workshop on Mathematical Analysis for Nonlinear Phenomena</a>
+    </li>
+    <li>
+      <span class="date">2026.08.30</span><br>
+      Our paper on <a href="https://scirep.w3.kanazawa-u.ac.jp">theoretical and numerical studies of a
+      Sobolev-gradient coupled complex boundary method for diffusion coefficient reconstruction</a>
+      has been published in <a href="https://scirep.w3.kanazawa-u.ac.jp">The Science Reports of Kanazawa University</a>
+      (with S. P. Nainggolan and H. Notsu).
+    </li>
+    <li>
+      <span class="date">2026.08.24–27</span><br>
+      Mini-symposium on "Recent Advances in Numerical Shape and Topology Optimization Methods:
+      From Theory to Practice" at <a href="https://easiam26.github.io">The 19th SIAM East Asian Section Conference</a>,
+      Jeju Island, 2026 (co-organized with W. Gong and S. Zhu).
+    </li>
+    <li>
+      <span class="date">2026.07.27</span> <span class="date">(citation details updated: 2026.10.09)</span><br>
+      Our paper on <a href="http://arxiv.org/abs/2503.14764">a shape optimization approach for inverse diffusion
+      problems using a single boundary measurement</a> has been published as an
+      <a href="https://doi.org/10.3934/ipi.2026049">Early Access</a> article in
+      <a href="https://www.aimsciences.org/ipi">Inverse Problems and Imaging</a> (with M. Machida and H. Notsu).
+    </li>
+    <li>
+      <span class="date">2026.07.24</span><br>
+      <a href="https://jftrabago.github.io/YRWAM2026Kanazawa/">Young Researchers Workshop on Applied Mathematics</a>
+      @ Kanazawa City, Ishikawa, Japan.
+    </li>
+    <li>
+      <span class="date">2026.06.20–23</span><br>
+      <a href="https://comfos-nasc2026.github.io/CoMFoSNASC2026/">Continuum Mechanics Focusing on
+      Singularities–Numerical Analysis &amp; Scientific Computing 2026</a> @ Lapu-Lapu City, Cebu, Philippines.
+    </li>
+    <li>
+      <span class="date">2026.05.13</span> Preprint<br>
+      A new paper is up on arXiv on
+      <a href="https://doi.org/10.48550/arXiv.2605.12202">cavity shape reconstruction with a homogeneous Robin
+      condition via a constrained coupled complex boundary method with ADMM</a>,
+      with M. Essahraoui, E. Cherrat, and L. Afraites.
+    </li>
+    <li>
+      <span class="date">2026.04.21</span> Publication<br>
+      Our paper titled <a href="https://arxiv.org/abs/2508.16898">"Enhanced shape recovery in advection–diffusion
+      problems via a novel ADMM-based CCBM optimization"</a> has been published in the
+      <a href="https://link.springer.com/article/10.1007/s10957-026-02989-1">Journal of Optimization Theory and
+      Applications, Volume 209, Article Number 44, 2026</a> (with E. Cherrat and L. Afraites).
+    </li>
+    <li>
+      <span class="date">2026.03.04</span> Preprint<br>
+      A new paper is up on arXiv on
+      <a href="https://doi.org/10.48550/arXiv.2603.04216">statistical topological gradient and shape optimization
+      for robust metal–semiconductor contact reconstruction</a>,
+      with L. Afraites, A. Hadri, and M. Hrizi.
+    </li>
+    <li>
+      <span class="date">2026.02.02</span> Preprint<br>
+      A new paper is up on arXiv on
+      <a href="http://arxiv.org/abs/2602.01656">numerical methods for diffusion coefficient recovery</a>,
+      with S. P. Nainggolan and H. Notsu.
+    </li>
+  </ul>
+</section>
 
-  
-
-
-<!-- Home -->
-<div class="myDesign-container" id="about" style="margin-top:75px">
-    <h1 class="myDesign-xxxlarge myDesign-text-myColor" style="margin:0;">
-        <b>Julius Fergy Tiongson RABAGO</b>
-    </h1>
-
-  <div class="myDesign-row" style="align-items:center;">
-    <!-- Left column: photo -->
-    <div class="myDesign-col m4 l3">
-      <img src="fergy_photo.png" alt="My Photo" class="myDesign-image" style="width:100%; max-width:250px;">
-    </div>
-
-    <!-- Right column: text -->
-    <div class="myDesign-col m8 l9">
-      <p>
-		  Hello! I'm Fergy. I have been a JSPS Postdoctoral Fellow since November 2024, mentored by 
-		  <a href="https://ridb.kanazawa-u.ac.jp/public/detail_en.php?kaken=70263358">Professor Masato Kimura</a>, 
-		  and was previously a Postdoctoral Researcher and a mentee of 
-		  <a href="https://ridb.kanazawa-u.ac.jp/public/detail_en.php?id=4524">Professor Hirofumi Notsu</a> 
-		  at the <a href="https://mathphys.w3.kanazawa-u.ac.jp/hpwp/en/">Faculty of Mathematics and Physics, Kanazawa University</a>. 
-		  I also served as an <a href="https://www.tuj.ac.jp/about/faculty-staff/julius-fergy-rabago">Adjunct Assistant Professor</a> 
-		  at <a href="https://www.tuj.ac.jp">Temple University, Japan Campus</a> from January to October 2024.
-		  
-      </p>
-
-      <p>
-        My current research interests include stationary free boundary and free surface problems, moving boundary problems, geometric inverse problems, and applications of shape optimization methods.
-      </p>
-	  
-	  <p>
-	  	<div class="myDesign-row myDesign-centered" style="align-items:center; justify-content:center;">
-		    <!-- Mait-to -->
-		    <div class="myDesign-col s1" >
-		        <a href="mailto:jftrabago@gmail.com?subject=Subject text here">
-		            <img src="icon/mail.png" alt="MailTo" class="myDesign-image" style="height:40px;">
-		        </a>
-		    </div>	
-			
-	  	    <!-- Google Scholar -->
-	  	    <div class="myDesign-col s1" >
-	  	        <a target="_blank" rel="noopener noreferrer" href="https://scholar.google.com/citations?user=A8DBCGIAAAAJ&hl=en&oi=ao">
-	  	            <img src="icon/sg.png" alt="Google Scholar" class="myDesign-image" style="height:40px;">
-	  	        </a>
-	  	    </div>
-
-	  	    <!-- ResearchGate -->
-	  	    <div class="myDesign-col s1" >
-	  	        <a target="_blank" rel="noopener noreferrer" href="https://www.researchgate.net/profile/Julius_Fergy_Rabago2">
-	  	            <img src="icon/rg.png" alt="ResearchGate" class="myDesign-image" style="height:40px;">
-	  	        </a>
-	  	    </div>
-
-	  	    <!-- ORCID -->
-	  	    <div class="myDesign-col s1" >
-	  	        <a target="_blank" rel="noopener noreferrer" href="https://orcid.org/0000-0003-0971-6307">
-	  	            <img src="icon/id.png" alt="ORCID" class="myDesign-image" style="height:40px;">
-	  	        </a>
-	  	    </div>
-
-	  	    <!-- Scopus -->
-	  	    <div class="myDesign-col s1" >
-	  	        <a target="_blank" rel="noopener noreferrer" href="https://www.scopus.com/authid/detail.uri?authorId=56263743100">
-	  	            <img src="icon/sc.png" alt="Scopus" class="myDesign-image" style="height:40px;">
-	  	        </a>
-	  	    </div>
-
-	  	    <!-- Researchmap -->
-	  	    <div class="myDesign-col s1" >
-	  	        <a target="_blank" rel="noopener noreferrer" href="https://researchmap.jp/jftrabago">
-	  	            <img src="icon/rm.png" alt="Researchmap" class="myDesign-image" style="height:40px;">
-	  	        </a>
-	  	    </div>	
-	  	</div>
-	  </p>		  
-	  
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-  <!-- !NEWS! -->
-  <h2 class="myDesign-text-myColor"> News</h2>
-  <div class="myDesign-row">
-    <div class="myDesign-col m12 l12">
-      <ul class="myDesign-ul">
-	  	    <!-- <li>
-	  	  	<p>
-	  	  		<s>2025.02.11-13:&nbsp;&nbsp;<a href="https://sites.google.com/view/deds2025/">International Conference: Differential Equations for Data Science 2025 (DEDS2025)</a>
-	  	      </s>
-	  	  	</p>
-	  	    </li>
-
-	  	    <li>
-	  	  	<p>
-	  	  		<s>2025.03.16-17:&nbsp;&nbsp;<a href="https://jftrabago.github.io/MNANP2025/">Workshop on Modeling and Numerical Analysis of Nonlinear Phenomena 2025 (MNANP2025)</a></s>
-	  	      </p>
-	  	    </li>
-
-	  	    <li>
-	  	  	<p>
-	  	  	<s>2025.03.24:&nbsp;&nbsp;<a href="https://jftrabago.github.io/WMANP/">The 22nd Workshop on Mathematical Analysis for Nonlinear Phenomena</a></s>
-	  	  	</p>
-	  	    </li>
-
-	  	    <li>
-	  	  	<p>
-	  	  		<s>2025.04.3-5:&nbsp;&nbsp;<a href="https://comads.science.upd.edu.ph">International Workshop on Computational and Mathematical Methods in Data Science 2025 (CoMaDS2025)</a></s>
-	  	      </p>
-	  	    </li> -->
-  
-	  	    <!-- <li>
-	  	  	<p>
-	  	  		<s>2025.06.30-07.04:&nbsp;&nbsp;<a href="https://easiam2025inmanila.github.io/easiam2025inmanila/">The 18th SIAM East Asian Section Conference, Manila, 2025</a></s>
-	  	      </p>
-	  	    </li> -->
-
-	  	    <!-- <li>2025.11.02-03: Event
-				<dd><a href="http://jftrabago.github.io/CASKUWorkshop2025/">Czech Academy of Sciences--Kanazawa University Workshop</a></dd>
-	  	    </li> -->
-			
-	  	    <!-- <li>2025.12.03-11: Event
-				<dd><a href="https://seamsschool2025baguio.github.io/seamsschool2025baguio/">SEAMS School 2025 Baguio (Inverse Problems and Optimal Control)</a></dd>
-	  	    </li> -->
-			
-			<!-- <li>2026.06.20-23: <span style="color: red;">New Event</span>
-			  <dd><a href="https://comfos-nasc2026.github.io/CoMFoSNASC2026/#">Continuum Mechanics Focusing on Singularities&ndash;Numerical Analysis &amp; Scientific Computing 2026</a></dd>
-			</li> -->
-				
-			<!-- <li>2026.01.28: <span style="color: red;">New Event</span>
-			  <dd><a href="https://jftrabago.github.io/AMSC2026Kanazawa/">AMSC 2026: Workshop on Applied Mathematics and Scientific Computing @ Kanazawa, Ishikawa, Japan</a></dd>
-			</li> -->
-
-	  	    <li> 2026.09.14: <span style="color: red;">New Event</span>
-				<dd><a href="https://jftrabago.github.io/WMANP/">35th Workshop on Mathematical Analysis for Nonlinear Phenomena</a></dd>
-	  	    </li>
-			
-			<li>2026.08.30: Publication
-			    <dd>Our paper on <a href="https://scirep.w3.kanazawa-u.ac.jp">theoretical and numerical studies of a Sobolev-gradient coupled complex boundary method for diffusion coefficient reconstruction</a> has been published in <a href="https://scirep.w3.kanazawa-u.ac.jp">The Science Reports of Kanazawa University</a> (with S. P. Nainggolan and H. Notsu).</dd>
-			</li>
-			
-			
-	  	    <!-- <li> 2026.08.24-27: <span style="color: red;">New Event</span> -->
-				<li> 2026.08.24-27: 
-				<dd>Mini-symposium on "Recent Advances in Numerical Shape and Topology Optimization Methods: From Theory to Practice" at <a href="https://easiam26.github.io">The 19th SIAM East Asian Section Conference,</a> Jeju Island, 2026 (co-organized with W. Gong and S. Zhu)</dd>
-	  	    </li>
-				
-			<li>2026.07.27: Published Online (citation details updated: 2026.10.09)
-			    <dd>Our paper on <a href="http://arxiv.org/abs/2503.14764">a shape optimization approach for inverse diffusion problems using a single boundary measurement</a> has been published as an <a href="https://doi.org/10.3934/ipi.2026049">Early Access</a> article in <a href="https://www.aimsciences.org/ipi">Inverse Problems and Imaging</a> (with M. Machida and H. Notsu).</dd>
-			</li>
-						
-			
-			<li>2026.07.24: 
-				<!-- <span style="color: red;">New Event</span> -->
-			  <dd><a href="https://jftrabago.github.io/YRWAM2026Kanazawa/">Young Researchers Workshop on Applied Mathematics @ Kanazawa City, Ishikawa, Japan</a></dd>  
-			</li>
-							
-		
-			<li>2026.06.20-23: <!-- <span style="color: red;">New Event</span> -->
-			  <dd><a href="https://comfos-nasc2026.github.io/CoMFoSNASC2026/">Continuum Mechanics Focusing on Singularities&ndash;Numerical Analysis &amp; Scientific Computing 2026 @ Lapu-Lapu City, Cebu, Philippines</a></dd>  
-			</li>
-				
-				
-		    <li>2026.05.13: Preprint
-		    <dd>A new paper is up on arXiv on <a href="https://doi.org/10.48550/arXiv.2605.12202">cavity shape reconstruction with a homogeneous Robin condition via a constrained coupled complex boundary method with ADMM,</a> with M. Essahraoui, E. Cherrat, and L. Afraites.</dd>
-			</li>
-				
-				
-			<li>2026.04.21: Publication
-		    <!-- <li>2026.03.23: Accepted Paper -->
-	    		<dd>Our paper titled <a href="https://arxiv.org/abs/2508.16898">"Enhanced shape recovery in advection–diffusion problems via a novel ADMM-based CCBM optimization"</a> has been published in the <a href="https://link.springer.com/article/10.1007/s10957-026-02989-1?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=nonoa_20260421&utm_content=10.1007%2Fs10957-026-02989-1">Journal of Optimization Theory and Applications, Volume 209, Article Number 44, 2026.</a> (with E. Cherrat and L. Afraites)</dd>
-			</li>
-
-			
-					
-		    <li>2026.03.04: Preprint
-		    <dd>A new paper is up on arXiv on <a href="https://doi.org/10.48550/arXiv.2603.04216">statistical topological gradient and shape optimization for robust metal--semiconductor contact reconstruction,</a> with  L. Afraites, A. Hadri, and M. Hrizi.</dd>
-			</li>
-			
-						  
-		    <li>2026.02.02: Preprint
-		    <dd>A new paper is up on arXiv on <a href="http://arxiv.org/abs/2602.01656">numerical methods for diffusion coefficient recovery,</a> with S. P. Nainggolan and H. Notsu.</dd>
-			</li>
-		</ul>
-		
-		<!-- <hr style="margin: 1em 0; border: 0; border-top: 2px dashed #ccc;"> -->
-		<hr style="margin: 1em 0; border: 0; border-top: 1px solid #ccc;">
-		
-			
-	    <div class="myDesign-col m12 l12">
-	      <ul class="myDesign-ul">
-			<!-- <li>2025.08.26: Preprint
-			  <dd>A new paper is up on arXiv on <a href="https://arxiv.org/abs/2508.16898">enhanced shape recovery in advection–diffusion problems via a novel ADMM-based CCBM optimization, with E. Cherrat and L. Afraites.</a></dd>
-			</li> -->
-
-	    <!-- <li>2025.07.25: Publication
-	    <dd>Our paper titled <a href="https://www.esaim-cocv.org/articles/cocv/abs/2025/01/cocv240189/cocv240189.html">"On the well-posedness of a Hele-Shaw-like system resulting from an inverse geometry problem formulated through a shape optimization setting" has been published in ESAIM: Control, Optimisation and Calculus of Variations, Volume 31, July 2025, Article Number 64, 65 Pages. (with M. Kimura)</a></dd>
-		</li>
-
-	    <li>2025.07.25: Publication
-	    <dd>Our paper on <a href="https://doi.org/10.1007/978-3-031-89498-5_6">the simultaneous recovery of a corroded boundary and admittance using the Kohn-Vogelius method is now available online (with M. Essahraoui, E. Cherrat and L. Afraites).</a></dd>
-		</li> -->
-		
-	    <!-- <li>2025.06.28: Publication
-	    <dd>Our paper about <a href="https://doi.org/10.1007/s00245-025-10290-2">a numerical shape optimization for an inverse problem in multi-dimensional advection-diffusion equations with spatially varying coefficients has been accepted to Applied Mathematics and Optimization (with E. Cherrat and L. Afraites).</a></dd>
-		</li>
-
-	    <li>2025.06.18: Publication
-	    <dd>My paper titled <a href="https://www.sciencedirect.com/science/article/pii/S0168927425001229?dgcid=author">"Localization of tumor through a non-conventional numerical shape optimization technique" has been published in Applied Numerical Mathematics, Volume 217, November 2025, Pages 135-171.</a></dd>
-		</li>
-		 -->
-	    <!-- <li>2025.05.01: Publication
-	    <dd>Our paper titled <a href="https://doi.org/10.4134/CKMS.c240121">"Convergences of the bi-periodic Horadam Sequences and the bi-periodic Lucas--Horadam Matrix" has been published in Communications of the
-	Korean Mathematical Society, Volume 40, Issue 2, 2025, Pages 243-270 (with J. P. Asca&ntilde;o and E. N. Gueco)</a></dd>
-		</li> -->
-		
-	    <!-- <li>2025.03.20: Publication
-	    <dd>Our paper titled <a href="https://doi.org/10.1137/24M1647369">"Detecting an Immersed Obstacle in Stokes Fluid Flow Using the Coupled Complex Boundary Method" has been published in SIAM Journal on Control and Optimization, Volume 63, Issue 2, 2025, Pages 822-851 (with L. Afraites and H. Notsu)</a></dd>
-		</li>
-
-	    <li>2025.03.20: Preprint
-	    <dd>A new paper is up on arXiv about <a href="http://arxiv.org/abs/2503.14764">a shape optimization approach for inverse diffusion problems using a single boundary measurement, with M. Machida and H. Notsu.</a></dd>
-		</li> -->
-      </ul>
-    </div>
-  </div>	
-
-
-
-
-
-
-
-
-
-<!-- !PAGE CONTENT! -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= --> 
 <!-- EDUCATION -->
-<div class="myDesign-container" id="education" style="margin-top:75px">	  
-		    
-  <!-- !RECENT TALKS! -->
-  <h1 class="myDesign-text-myColor"><b>Education</b></h1>
-  
-  <div class="myDesign-row">
-    <div class="myDesign-col m12 l12">
-      <ul>
-		  <li>
-		    <p><b>PhD</b> Informatics (2020),
-		      <i>Nagoya University,</i> Nagoya, Japan,
-		      2017.10 – 2020.09.28
-		    </p>
-		  </li>
-		  <li>
-		    <p><b>MSc</b> Mathematics (2017),
-		      <i>University of the Philippines Baguio,</i> Baguio City, Philippines,
-		      2015.01 – 2017.01.10
-		    </p>
-		  </li>
-		  <li>
-		    <p><b>PMAM</b> Actuarial Science (2015),
-		      <i>University of the Philippines Diliman,</i> Quezon City, Philippines,
-		      2011.06 – 2015.01.10
-		    </p>
-		  </li>
-		  <li>
-		    <p><b>BSc</b> Mathematics (2010),
-		      <i>University of the Philippines Baguio,</i> Baguio City, Philippines,
-		      2007.06 – 2010.10.22
-		    </p>
-		  </li>
-		  
-      </ul>
-    </div>
-  </div>
-  
+<section id="education">
+  <h2>Education</h2>
+  <ul>
+    <li>PhD Informatics (2020), <em>Nagoya University</em>, Nagoya, Japan, 2017.10 – 2020.09.28</li>
+    <li>MSc Mathematics (2017), <em>University of the Philippines Baguio</em>, Baguio City, Philippines, 2015.01 – 2017.01.10</li>
+    <li>PMAM Actuarial Science (2015), <em>University of the Philippines Diliman</em>, Quezon City, Philippines, 2011.06 – 2015.01.10</li>
+    <li>BSc Mathematics (2010), <em>University of the Philippines Baguio</em>, Baguio City, Philippines, 2007.06 – 2010.10.22</li>
+  </ul>
+</section>
 
-
-</div>
-
-
-
-
-
-
-
-
-<!-- !PAGE CONTENT! -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= --> 
 <!-- RESEARCH -->
-<div class="myDesign-container" id="research" style="margin-top:75px">	  
-		    
-  <h1 class="myDesign-text-myColor"><b>Projects</b></h1>
-  
-	<div class="myDesign-row" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
-	  <!-- Column 1: Image -->
-	  <div class="myDesign-col" style="flex: 1 1 200px; max-width: 200px;">
-	    <img src="cow.gif" alt="cowGIF" class="myDesign-image" style="width:100%;">
-	  </div>
+<section id="research">
+  <h2>Research</h2>
 
-	  <!-- Column 2: Keywords -->
-	  <div class="myDesign-col" style="flex: 2 1 300px;">
-	    <h2 class="myDesign-text-myColor"> Keywords</h2>
-	    <ul>
-	      <li>Free boundary problems</li>
-	      <li>Free surface problems</li>
-	      <li>Geometric inverse problems</li>
-	      <li>Moving boundary problems</li>
-	      <li>Shape optimization methods</li>
-	    </ul>
-	  </div>
-	</div>
-	
+  <h3>Keywords</h3>
+  <figure class="research">
+    <img src="cow.gif" alt="Cow GIF">
+  </figure>
+  <ul>
+    <li>Free boundary problems</li>
+    <li>Free surface problems</li>
+    <li>Geometric inverse problems</li>
+    <li>Moving boundary problems</li>
+    <li>Shape optimization methods</li>
+  </ul>
 
-
-    <div class="myDesign-row">
-      <div class="myDesign-col m12 l12">
-        <ul>
-  	  	<li>	
-  		<p> 
-  		<b id="project1Toggle" onclick="toggleProject('project1Content','project1Arrow')" style="cursor:pointer; user-select:none;">Novel hybrid methods for accurate shape reconstruction: advancing theory and computational solutions <span id="project1Arrow" style="font-size:0.7em;">&#9654;</span></b><br />
-  		<span id="project1Content" style="display:none;">
-  		<em>Co-Investigator (PI: Masato Kimura)</em><br />
-  		Grants-in-aid for JSPS Postdoctoral Fellows<br />
-  			<font color="myDesign-KanazawaU">Japan Society for Promotion of Science</font> <br />
-  			<a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-24KF0221">KAKENHI Grant Number JP24KF0221</a><br />
-  			<font color="myDesign-KanazawaU"> JPY 2,400,000 </font><br>
-  			2024.11.01 - 2027.03.31 (2026.10.31)
-  		</span>
-  		</p> 
-  		</li>
-		
-  	  	<li>	
-  		<p> 
-  		<b id="project2Toggle" onclick="toggleProject('project2Content','project2Arrow')" style="cursor:pointer; user-select:none;">Development of effective and accurate non-conventional solution methods for shape inverse problems: theory and numerics <span id="project2Arrow" style="font-size:0.7em;">&#9654;</span></b><br />
-  		<span id="project2Content" style="display:none;">
-  		<em>Principal Investigator</em><br />
-  		Grants-in-aid for Early-Career Scientists<br />
-  			<font color="myDesign-KanazawaU">Japan Society for Promotion of Science</font> <br />
-  			<a href="https://nrid.nii.ac.jp/nrid/1000010897995/">KAKENHI Grant Number JP23K13012</a><br />
-  			<font color="myDesign-KanazawaU"> JPY 3,120,000 </font><br>
-  			2023.04.01 - 2027.03.31 (2024.10.31)<br>
-  			(Discontinued as of October 31, 2024, due to the JSPS Postdoctoral Fellowship.)
-  		</span>
-  		</p>
-  		</li>
-		
-  	  	<li>	
-  		<p> 
-  		<b id="project3Toggle" onclick="toggleProject('project3Content','project3Arrow')" style="cursor:pointer; user-select:none;">The Analysis of Bernoulli free boundary problem using the velocity method and second-order perturbation of identity technique <span id="project3Arrow" style="font-size:0.7em;">&#9654;</span></b><br />
-  		<span id="project3Content" style="display:none;">
-  		<em>Research Assistant (PI: Jerico Bacani)</em><br />
-  		Emerging Interdisciplinary Research<br />
-  			<font color="myDesign-KanazawaU">Office of the University of the Philippines Vice President for Academic Affairs</font> <br />
-  			<a href=" ">OVPAA-EIDR-C05-015</a><br />
-  			2014.08.01 - 2016.07.31
-  			<!-- <font color="myDesign-KanazawaU"> JPY 3,120,000 </font> -->
-  		</span>
-  		</p> 
-  		</li>
-        </ul>
-      </div>
+  <h3>Projects</h3>
+    <p class="ptitle">Novel hybrid methods for accurate shape reconstruction: advancing theory and computational solutions</p>
+    <div class="pdesc">
+      <p><em>Co-Investigator (PI: Masato Kimura)</em><br>
+      Grants-in-aid for JSPS Postdoctoral Fellows<br>
+      Japan Society for the Promotion of Science<br>
+      <a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-24KF0221">KAKENHI Grant Number JP24KF0221</a><br>
+      JPY 2,400,000<br>
+      2024.11.01 – 2027.03.31 (2026.10.31)</p>
+    </div>
+    <p class="ptitle">Development of effective and accurate non-conventional solution methods for shape inverse problems: theory and numerics</p>
+    <div class="pdesc">
+      <p><em>Principal Investigator</em><br>
+      Grants-in-aid for Early-Career Scientists<br>
+      Japan Society for the Promotion of Science<br>
+      <a href="https://nrid.nii.ac.jp/nrid/1000010897995/">KAKENHI Grant Number JP23K13012</a><br>
+      JPY 3,120,000<br>
+      2023.04.01 – 2027.03.31 (2024.10.31)<br>
+      (Discontinued as of October 31, 2024, due to the JSPS Postdoctoral Fellowship.)</p>
+    </div>
+    <p class="ptitle">The Analysis of Bernoulli free boundary problem using the velocity method and second-order perturbation of identity technique</p>
+    <div class="pdesc">
+      <p><em>Research Assistant (PI: Jerico Bacani)</em><br>
+      Emerging Interdisciplinary Research<br>
+      Office of the University of the Philippines Vice President for Academic Affairs<br>
+      OVPAA-EIDR-C05-015<br>
+      2014.08.01 – 2016.07.31</p>
     </div>
 
-    <script>
-    function toggleProject(contentId, arrowId) {
-      var content = document.getElementById(contentId);
-      var arrow = document.getElementById(arrowId);
-      var isHidden = content.style.display === 'none';
-      content.style.display = isHidden ? '' : 'none';
-      arrow.innerHTML = isHidden ? '&#9660;' : '&#9654;';
-    }
-    </script>
-	
-  	
-	
-    <!-- Journall Referee -->
-  	  <div class="myDesign-col">
-  	    <h3 class="myDesign-text-myColor"> Journal Refereeing</h3>
-  		<ul>
-  		  <li><a href="https://www.springer.com/journal/10440">Acta Applicandae Mathematicae</a></li>
-  		  <!-- <li><a href="https://jomardpublishing.com/journals/advanced-mathematical-models-applications">Advanced Mathematical Models &amp; Applications</a></li> -->
-  		  <li><a href="https://link.springer.com/journal/245">Applied Mathematics and Optimization</a></li>
-  		  <li><a href="https://www.sciencedirect.com/journal/communications-in-nonlinear-science-and-numerical-simulation">Communications in Nonlinear Science and Numerical Simulation</a></li>
-  		  <li><a href="https://www.sciencedirect.com/journal/computers-and-mathematics-with-applications">Computers &amp; Mathematics with Applications</a></li>
-		  <li><a href="https://www.aimsciences.org/dcds-s">Discrete and Continuous Dynamical Systems - S</a></li>
-  		  <!-- <li><a href="http://www.watam.org/A/">Dynamics of Continuous, Discrete and Impulsive Systems Series A: Mathematical Analysis</a></li> -->
-  		  <li><a href="https://link.springer.com/journal/13540">Fractional Calculus and Applied Analysis</a></li>
-		  <li><a href="http://www.ieja.net">International Electronic Journal of Algebra</a></li>
-  		  <li><a href="https://www.tandfonline.com/journals/gcfd20">International Journal of Computational Fluid Dynamics</a></li>
-  		  <li><a href="https://iopscience.iop.org/journal/0266-5611">Inverse Problems</a></li>
-  		  <!-- <li><a href="http://www.naturalspublishing.com/show.asp?JorID=5&pgid=0">Journal of Analysis &amp; Number Theory</a></li> -->
-  		  <!-- <li><a href="http://www.kcam.biz/journal_info/change_jou_name.php">Journal of Applied Mathematics &amp; Informatics</a></li> -->
-  		  <!-- <li><a href="https://mjms.upm.edu.my">Malaysian Journal of Mathematical Sciences</a></li> -->
-  		  <!-- <li><a href="https://www.isr-publications.com/jmcs">Journal of Mathematics and Computer Science</a></li> -->
-  		  <li><a href="https://link.springer.com/journal/10957">Journal of Optimization Theory and Applications</a></li>
-  		  <li><a href="https://www.sciencedirect.com/journal/mathematics-and-computers-in-simulation">Mathematics and Computers in Simulation</a></li>
-  		  <!-- <li><a href="http://www.naturalspublishing.com/show.asp?JorID=7&pgid=0">Mathematical Sciences Letters</a></li> -->
-  		  <li><a href="https://www.vmsta.org/journal/VMSTA">Modern Stochastics: Theory and Applications</a></li>
-  		  <li>etc.</li>
-  		</ul>
-  	  </div>
-  	</div>
+  <h3>Journal Refereeing</h3>
+  <ul class="journals">
+    <li><a href="https://www.springer.com/journal/10440">Acta Applicandae Mathematicae</a></li>
+    <li><a href="https://link.springer.com/journal/245">Applied Mathematics and Optimization</a></li>
+    <li><a href="https://www.sciencedirect.com/journal/communications-in-nonlinear-science-and-numerical-simulation">Communications in Nonlinear Science and Numerical Simulation</a></li>
+    <li><a href="https://www.sciencedirect.com/journal/computers-and-mathematics-with-applications">Computers &amp; Mathematics with Applications</a></li>
+    <li><a href="https://www.aimsciences.org/dcds-s">Discrete and Continuous Dynamical Systems - S</a></li>
+    <li><a href="https://link.springer.com/journal/13540">Fractional Calculus and Applied Analysis</a></li>
+    <li><a href="http://www.ieja.net">International Electronic Journal of Algebra</a></li>
+    <li><a href="https://www.tandfonline.com/journals/gcfd20">International Journal of Computational Fluid Dynamics</a></li>
+    <li><a href="https://iopscience.iop.org/journal/0266-5611">Inverse Problems</a></li>
+    <li><a href="https://link.springer.com/journal/10957">Journal of Optimization Theory and Applications</a></li>
+    <li><a href="https://www.sciencedirect.com/journal/mathematics-and-computers-in-simulation">Mathematics and Computers in Simulation</a></li>
+    <li><a href="https://www.vmsta.org/journal/VMSTA">Modern Stochastics: Theory and Applications</a></li>
+    <li>etc.</li>
+  </ul>
+</section>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-<!-- !PAGE CONTENT! -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= --> 
 <!-- PAPERS -->
-<div class="myDesign-container" id="papers" style="margin-top:75px">
-  
-  
-  <h1 class="myDesign-text-myColor"><b>Papers</b></h1>
-	<div class="myDesign-row myDesign-centered" style="align-items:center; justify-content:center;">
-		
-	    <!-- MathSciNet -->
-	    <div class="myDesign-col s3" >
-	        <a target="_blank" rel="noopener noreferrer" href="https://mathscinet.ams.org/mathscinet/MRAuthorID/1058650">
-	            <img src="icon/MathSciNet_logo.png" alt="MathSciNet" class="myDesign-image" style="width:200px;">
-	        </a>
-	    </div>
-		
-	    <!-- ZbMath -->
-	    <div class="myDesign-col s3" >
-	        <a target="_blank" rel="noopener noreferrer" href="https://zbmath.org/authors/?q=ai:rabago.julius-fergy-tiongson">
-	            <img src="icon/zbMATH.png" alt="ZbMath" class="myDesign-image" style="width:200px;">
-	        </a>
-	    </div>
-		
-	</div>	
-  
-  
-  <!-- !Preprints! -->
-  <h2>Preprints</h2>
-  <div class="myDesign-row">
-    <div class="myDesign-col m12 l12">
-      <ul class="myDesign-ul">
-			  <li>
-			    <p>
-			      M. Essahraoui, E. Cherrat, L. Afraites, and <u>J. F. T. Rabago</u><br/>
-				  TBA <br/>
-			      <!-- <font color="myDesign-KanazawaU">Journal of Optimization Theory and Applications, Volume 209, 2026, Article Number 44, 28 pages </font> <br/> -->
-			      <a href=" " target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			      arXiv:<a href=href=" " target="_blank" rel="noopener noreferrer"> </a>&nbsp;&nbsp;&nbsp;
-			      doi:<a href=" "> </a>
-				  <!--Publication April 21, 2026 -->
-			    </p>
-			  </li>  
-		  
-			  <li>
-			    <p>
-			      M. Essahraoui, E. Cherrat, L. Afraites, and <u>J. F. T. Rabago</u><br/>
-				  Cavity shape reconstruction with a homogeneous Robin condition via a constrained coupled complex boundary method with ADMM (<i>in revision</i>)<br/>
-			      <!-- <font color="myDesign-KanazawaU">Journal of Optimization Theory and Applications, Volume 209, 2026, Article Number 44, 28 pages </font> <br/> -->
-			      <a href="papers/Essahraoui_Cherrat_Afraites_Rabago_2026.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp; 
-			      arXiv:<a href="https://doi.org/10.48550/arXiv.2605.12202" target="_blank" rel="noopener noreferrer">2605.12202</a>&nbsp;&nbsp;&nbsp;
-			      doi:<a href=" "> </a>
-				  <!--Publication April 21, 2026 -->
-			    </p>
-			  </li>  
-		  
-		  
-			  <li>
-			    <p>
-			      L. Afraites, A. Hadri, M. Hrizi, and <u> J. F. T. Rabago</u> <br/>  
-			      Statistical topological gradient and shape optimization for robust metal--semiconductor contact reconstruction (<i>in revision</i>)<br/> 
-			      <a href="papers/Afraites_Hadri_Hrizi_Rabago_2026.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			      arXiv:<a href="https://doi.org/10.48550/arXiv.2603.04216" target="_blank" rel="noopener noreferrer">2603.04216</a>&nbsp;&nbsp;&nbsp;
-			      doi:<a href=" "> </a>
-			    </p>
-			  </li>
-			
-			  <!-- <li>
-			    <p>
-			      S. P. Nainggolan, <u> J. F. T. Rabago</u>, and H. Notsu <br/>
-			      Numerical methods for diffusion coefficient recovery (<i>in revision</i>)<br/>
-			      <a href="papers/Nainggolan_Rabago_Notsu_2026.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			      arXiv:<a href="http://arxiv.org/abs/2602.01656" target="_blank" rel="noopener noreferrer">2602.01656</a>&nbsp;&nbsp;&nbsp;
-			      doi:<a href=" "> </a>
-			    </p>
-			  </li> -->
-			
-		</ol>	  
-      </ul>
-    </div>
-  </div>		  
-		    
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-  <!-- !SELECTED RECENT PAPERS! -->
-  <h2 id="selectedPapersToggle" onclick="toggleSelectedPapers()" style="cursor:pointer; user-select:none;">
-    Selected Recent Papers <span id="selectedPapersArrow" style="font-size:0.7em;">&#9654;</span>
-  </h2>
+<section id="papers">
+  <h2>Papers</h2>
+  <p class="links">
+    Bibliographic listings:
+    <a target="_blank" rel="noopener noreferrer" href="https://mathscinet.ams.org/mathscinet/MRAuthorID/1058650">MathSciNet</a> ·
+    <a target="_blank" rel="noopener noreferrer" href="https://zbmath.org/authors/?q=ai:rabago.julius-fergy-tiongson">zbMATH</a>
+  </p>
 
-  <div class="myDesign-row" id="selectedPapersContent" style="display:none;">
-    <div class="myDesign-col m12 l12">
-      <ul class="myDesign-ul">
-	  	<ol reversed>	
-			  <li>
-			    <p>
-			      S. P. Nainggolan, <u> J. F. T. Rabago</u>, and H. Notsu <br/>  
-				  Theoretical and numerical studies of a Sobolev-gradient coupled complex boundary method for diffusion coefficient reconstruction<br/> 
-				  <font color="myDesign-KanazawaU">The Science Reports of Kanazawa University, Volume 69, 2026, Pages 47–71. </font> <br/>
-			      <a href="papers/scirep_69-004.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			      arXiv:<a href="http://arxiv.org/abs/2602.01656" target="_blank" rel="noopener noreferrer">2602.01656</a>&nbsp;&nbsp;&nbsp;
-			      doi:<a href=" "> </a>
-			    </p>
-			  </li>
-			
-			  <li>
-			    <p>
-			      M. Machida, H. Notsu, and <u> J. F. T. Rabago</u> <br/>  
-			      Shape optimization for piecewise parameter identification in inverse diffusion problems with a single boundary measurement<br/> 
-				  <font color="myDesign-KanazawaU">Inverse Problems and Imaging, Volume 29, 2027, 181-226. </font> <br/>
-				  <!-- <font color="myDesign-KanazawaU">Inverse Problems and Imaging, 2026, <i>early access</i>. </font> <br/> -->
-			      <a href="papers/Machida_Notsu_Rabago_2025.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			      arXiv:<a href="http://arxiv.org/abs/2503.14764" target="_blank" rel="noopener noreferrer">2503.14764</a>&nbsp;&nbsp;&nbsp;
-			      doi:<a href="https://doi.org/10.3934/ipi.2026049">10.3934/ipi.2026049</a>
-			    </p>
-			  </li>
-			
-			  <li>
-			    <p>
-			      E. Cherrat, L. Afraites, and <u>J. F. T. Rabago</u><br/>  
-			      Enhanced shape recovery in advection–diffusion problems via a novel ADMM-based CCBM optimization<br/> 
-			      <font color="myDesign-KanazawaU">Journal of Optimization Theory and Applications, Volume 209, 2026, Article Number 44, 28 pages </font> <br/>
-			      <a href="papers/Cherrat_Afraites_Rabago_2026.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			      arXiv:<a href="https://arxiv.org/abs/2508.16898" target="_blank" rel="noopener noreferrer">2508.16898</a>&nbsp;&nbsp;&nbsp;
-			      doi:<a href="https://doi.org/10.1007/s10957-026-02989-1">10.1007/s10957-026-02989-1</a>
-				  <!--Publication April 21, 2026 -->
-			    </p>
-			  </li>  
-			
-			<li>
-			  <p>
-			    <u> J. F. T. Rabago</u> and M. Kimura <br/>  
-			    On the well-posedness of a Hele-Shaw-like system resulting from an inverse geometry problem formulated through a shape optimization setting <br/> 
-			    <font color="myDesign-KanazawaU">ESAIM: Control, Optimisation and Calculus of Variations, Volume 31, 2025, Article Number 64, 65 pages</font> <br/>
-			    <a href="papers/Rabago_Kimura_2025_COCV.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    arXiv:<a href="https://arxiv.org/abs/2407.03083" target="_blank" rel="noopener noreferrer">2407.03083</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1051/cocv/2025052">10.1051/cocv/2025052</a>
-			  </p>
-			</li>  
+  <h3>Preprints</h3>
+  <p class="pub">
+    <span class="authors">M. Essahraoui, E. Cherrat, L. Afraites, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">TBA</span>
+    <span class="links">[PDF] · arXiv · doi</span>
+  </p>
+  <p class="pub">
+    <span class="authors">M. Essahraoui, E. Cherrat, L. Afraites, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Cavity shape reconstruction with a homogeneous Robin condition via a constrained coupled complex boundary method with ADMM <em>(in revision)</em></span>
+    <span class="links"><a href="papers/Essahraoui_Cherrat_Afraites_Rabago_2026.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="https://doi.org/10.48550/arXiv.2605.12202" target="_blank" rel="noopener noreferrer">2605.12202</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">L. Afraites, A. Hadri, M. Hrizi, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Statistical topological gradient and shape optimization for robust metal–semiconductor contact reconstruction <em>(in revision)</em></span>
+    <span class="links"><a href="papers/Afraites_Hadri_Hrizi_Rabago_2026.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="https://doi.org/10.48550/arXiv.2603.04216" target="_blank" rel="noopener noreferrer">2603.04216</a></span>
+  </p>
 
-			<li>
-			  <p>
-			    E. Cherrat, L. Afraites, and <u> J. F. T. Rabago</u> <br/>  
-			    Numerical solution by shape optimization method to an inverse shape problem in multi-dimensional advection-diffusion problem with space dependent coefficients <br/> 
-			    <font color="myDesign-KanazawaU">Applied Mathematics and Optimization, Volume 92, 2025, Article Number 13, 44 pages </font> <br/>
-			    <a href="papers/Cherrat_Afraites_Rabago_2025_AMOP.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    arXiv:<a href="https://arxiv.org/abs/2504.07796" target="_blank" rel="noopener noreferrer">2504.07796</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1007/s00245-025-10290-2">10.1007/s00245-025-10290-2</a>
-			  </p>
-			</li>  
+  <h3>Publications</h3>
+  <p class="pub">
+    <span class="authors">S. P. Nainggolan, <span class="me">J. F. T. Rabago</span>, and H. Notsu</span>
+    <span class="title">Theoretical and numerical studies of a Sobolev-gradient coupled complex boundary method for diffusion coefficient reconstruction</span>
+    <span class="refs"><em>The Science Reports of Kanazawa University</em>, 69 (2026), 47–71.</span>
+    <span class="links"><a href="papers/scirep_69-004.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="http://arxiv.org/abs/2602.01656" target="_blank" rel="noopener noreferrer">2602.01656</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">M. Machida, H. Notsu, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Shape optimization for piecewise parameter identification in inverse diffusion problems with a single boundary measurement</span>
+    <span class="refs"><em>Inverse Problems and Imaging</em>, 29 (2027), 181–226.</span>
+    <span class="links"><a href="papers/Machida_Notsu_Rabago_2025.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="http://arxiv.org/abs/2503.14764" target="_blank" rel="noopener noreferrer">2503.14764</a> ·
+    doi:<a href="https://doi.org/10.3934/ipi.2026049">10.3934/ipi.2026049</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">E. Cherrat, L. Afraites, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Enhanced shape recovery in advection–diffusion problems via a novel ADMM-based CCBM optimization</span>
+    <span class="refs"><em>Journal of Optimization Theory and Applications</em>, 209 (2026), Art. 44, 28 pp.</span>
+    <span class="links"><a href="papers/Cherrat_Afraites_Rabago_2026.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="https://arxiv.org/abs/2508.16898" target="_blank" rel="noopener noreferrer">2508.16898</a> ·
+    doi:<a href="https://doi.org/10.1007/s10957-026-02989-1">10.1007/s10957-026-02989-1</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span> and M. Kimura</span>
+    <span class="title">On the well-posedness of a Hele-Shaw-like system resulting from an inverse geometry problem formulated through a shape optimization setting</span>
+    <span class="refs"><em>ESAIM: Control, Optimisation and Calculus of Variations</em>, 31 (2025), Art. 64, 65 pp.</span>
+    <span class="links"><a href="papers/Rabago_Kimura_2025_COCV.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="https://arxiv.org/abs/2407.03083" target="_blank" rel="noopener noreferrer">2407.03083</a> ·
+    doi:<a href="https://doi.org/10.1051/cocv/2025052">10.1051/cocv/2025052</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">E. Cherrat, L. Afraites, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Numerical solution by shape optimization method to an inverse shape problem in multi-dimensional advection-diffusion problem with space dependent coefficients</span>
+    <span class="refs"><em>Applied Mathematics and Optimization</em>, 92 (2025), Art. 13, 44 pp.</span>
+    <span class="links"><a href="papers/Cherrat_Afraites_Rabago_2025_AMOP.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="https://arxiv.org/abs/2504.07796" target="_blank" rel="noopener noreferrer">2504.07796</a> ·
+    doi:<a href="https://doi.org/10.1007/s00245-025-10290-2">10.1007/s00245-025-10290-2</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Localization of tumor through a non-conventional numerical shape optimization technique</span>
+    <span class="refs"><em>Applied Numerical Mathematics</em>, 217 (2025), 135–171.</span>
+    <span class="links"><a href="papers/Rabago_APNUM_2025.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="https://arxiv.org/abs/2502.20656" target="_blank" rel="noopener noreferrer">2502.20656</a> ·
+    doi:<a href="https://doi.org/10.1016/j.apnum.2025.06.005">10.1016/j.apnum.2025.06.005</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">M. Essahraoui, E. Cherrat, L. Afraites, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Simultaneous recovery of a corroded boundary and admittance using the Kohn-Vogelius method</span>
+    <span class="refs">In <em>Computational Methods for Inverse Problems and Applications</em>, ICMDS 2024, Khouribga, Morocco, October 21–22, 2024, Springer Proc. Math. Stat., vol. 498, Springer, Cham, 2025, 73–89.</span>
+    <span class="links"><a href="papers/Essahraoui_Cherrat_Afraites_Fergy_2025_simultaneous.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="https://arxiv.org/abs/2506.17938" target="_blank" rel="noopener noreferrer">2506.17938</a> ·
+    doi:<a href="https://doi.org/10.1007/978-3-031-89498-5_6">10.1007/978-3-031-89498-5_6</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span>, L. Afraites, and H. Notsu</span>
+    <span class="title">Detecting immersed obstacle in Stokes fluid flow using the coupled complex boundary method</span>
+    <span class="refs"><em>SIAM Journal on Control and Optimization</em>, 63 (2025), no. 2, 822–851.</span>
+    <span class="links">arXiv:<a href="https://arxiv.org/abs/2403.11819" target="_blank" rel="noopener noreferrer">2403.11819</a> ·
+    doi:<a href="https://doi.org/10.1137/24M1647369">10.1137/24M1647369</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span>, A. Hadri, L. Afraites, A. S. Hendy, and M. A. Zaky</span>
+    <span class="title">A robust alternating direction method of multipliers numerical scheme for solving geometric inverse problems in a shape optimization setting</span>
+    <span class="refs"><em>Computers &amp; Mathematics with Applications</em>, 175 (2024), 19–32.</span>
+    <span class="links">arXiv:<a href="https://arxiv.org/abs/2301.10355v3" target="_blank" rel="noopener noreferrer">2301.10355</a> ·
+    doi:<a href="https://doi.org/10.1016/j.camwa.2024.08.034">10.1016/j.camwa.2024.08.034</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">L. Afraites and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Boundary shape reconstruction with Robin condition: existence result, stability analysis, and inversion via multiple measurements</span>
+    <span class="refs"><em>Computational and Applied Mathematics</em>, 43 (2024), Art. 270, 37 pp.</span>
+    <span class="links"><a href="papers/main_Afraites_Rabago_2024_COAM.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    arXiv:<a href="https://arxiv.org/abs/2404.05202" target="_blank" rel="noopener noreferrer">2404.05202</a> ·
+    doi:<a href="https://doi.org/10.1007/s40314-024-02741-3">10.1007/s40314-024-02741-3</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">Y. Sunayama, M. Kimura, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Comoving mesh method for multi-dimensional moving boundary problems: mean-curvature flow and Stefan problems</span>
+    <span class="refs"><em>Mathematics and Computers in Simulation</em>, 221 (2024), 589–605.</span>
+    <span class="links"><a href="papers/Sunayama_Rabago_Kimura_2024_MATCOM.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.1016/j.matcom.2024.03.020">10.1016/j.matcom.2024.03.020</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span> and H. Notsu</span>
+    <span class="title">Numerical solution to a free boundary problem for the Stokes equation using the coupled complex boundary method in shape optimization settings</span>
+    <span class="refs"><em>Applied Mathematics and Optimization</em>, 89 (2024), Art. 2, 56 pp.</span>
+    <span class="links"><a href="papers/Rabago_Notsu_2023_AMOP.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.1007/s00245-023-10065-7">10.1007/s00245-023-10065-7</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">E. Cherrat, L. Afraites, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Shape reconstruction for advection-diffusion problems by shape optimization method: the case of constant velocity</span>
+    <span class="refs"><em>Discrete and Continuous Dynamical Systems Series S</em>, 18 (2025), no. 1, 296–320.</span>
+    <span class="links"><a href="https://drive.google.com/file/d/18OsocxIt4ewdH3K4aFFjwmJiZ0GYMYbI/view?usp=share_link" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.3934/dcdss.2023186">10.3934/dcdss.2023186</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">L. Afraites and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Shape optimization methods for detecting an unknown boundary with the Robin condition by a single measurement</span>
+    <span class="refs"><em>Discrete and Continuous Dynamical Systems Series S</em>, 18 (2025), no. 1, 43–76.</span>
+    <span class="links"><a href="https://drive.google.com/file/d/14YqmoYpf4BxZ5PgkhgzW7tSxSi-2iXe0/view?usp=share_link" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.3934/dcdss.2022196">10.3934/dcdss.2022196</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span></span>
+    <span class="title">Numerical solution to the exterior Bernoulli problem using the Dirichlet-Robin energy gap cost functional approach in two and three dimensions</span>
+    <span class="refs"><em>Numerical Algorithms</em>, 94 (2023), 175–227.</span>
+    <span class="links"><a href="papers/Rabago_NUMA_2023.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.1007/s11075-023-01497-x">10.1007/s11075-023-01497-x</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span></span>
+    <span class="title">On the new coupled complex boundary method in shape optimization framework for solving stationary free boundary problems</span>
+    <span class="refs"><em>Mathematical Control and Related Fields</em>, 13 (2023), no. 4, 1362–1398.</span>
+    <span class="links"><a href="papers/Rabago_MCRF_2022.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.3934/mcrf.2022041">10.3934/mcrf.2022041</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">Y. Sunayama, <span class="me">J. F. T. Rabago</span>, and M. Kimura</span>
+    <span class="title">Comoving mesh method for certain classes of moving boundary problems</span>
+    <span class="refs"><em>Japan Journal of Industrial and Applied Mathematics</em>, 39 (2022), 973–1001.</span>
+    <span class="links"><a href="papers/Sunayama_Kimura_Rabago_2022_JJIAM.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.1007/s13160-022-00524-z">10.1007/s13160-022-00524-z</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span> and H. Azegami</span>
+    <span class="title">A second-order shape optimization algorithm for solving the exterior Bernoulli free boundary problem using a new boundary cost functional</span>
+    <span class="refs"><em>Computational Optimization and Applications</em>, 77 (2020), 251–305.</span>
+    <span class="links"><a href="papers/Rabago_Azegami_COAP_2020.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.1007/s10589-020-00199-7">10.1007/s10589-020-00199-7</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span> and H. Azegami</span>
+    <span class="title">A new energy-gap cost functional approach for the exterior Bernoulli free boundary problem</span>
+    <span class="refs"><em>Evolution Equations and Control Theory</em>, 8 (2019), no. 4, 785–824.</span>
+    <span class="links"><a href="papers/Rabago_Azegami_EECT_2019.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.3934/eect.2019038">10.3934/eect.2019038</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span> and H. Azegami</span>
+    <span class="title">An improved shape optimization formulation of the Bernoulli problem by tracking the Neumann data</span>
+    <span class="refs"><em>Journal of Engineering Mathematics</em>, 117 (2019), no. 1, 1–29.</span>
+    <span class="links"><a href="papers/Rabago_Azegami_JEM_2019.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.1007/s10665-019-10005-x">10.1007/s10665-019-10005-x</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span> and H. Azegami</span>
+    <span class="title">Shape optimization approach to defect-shape identification with convective boundary condition via partial boundary measurement</span>
+    <span class="refs"><em>Japan Journal of Industrial and Applied Mathematics</em>, 36 (2018), no. 1, 131–176.</span>
+    <span class="links"><a href="papers/Rabago_Azegami_JJIAM_2019.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.1007/s13160-018-0337-5">10.1007/s13160-018-0337-5</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span> and J. B. Bacani</span>
+    <span class="title">Shape optimization approach for solving the Bernoulli problem by tracking the Neumann data: a Lagrangian formulation</span>
+    <span class="refs"><em>Communications in Pure &amp; Applied Analysis</em>, 17 (2018), no. 6, 2683–2702.</span>
+    <span class="links"><a href="papers/Bacani_Rabago_CPAA_2018.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.3934/cpaa.2018127">10.3934/cpaa.2018127</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors"><span class="me">J. F. T. Rabago</span> and J. B. Bacani</span>
+    <span class="title">Shape optimization approach to the Bernoulli problem: a Lagrangian formulation</span>
+    <span class="refs"><em>IAENG International Journal of Applied Mathematics</em>, 47 (2017), no. 4, 417–424.</span>
+    <span class="links"><a href="papers/Rabago_Bacani_IJAM_2017.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a></span>
+  </p>
+  <p class="pub">
+    <span class="authors">J. B. Bacani and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">On the second-order shape derivative of the Kohn-Vogelius objective functional using the velocity method</span>
+    <span class="refs"><em>International Journal of Differential Equations</em>, 2015 (2015), Art. ID 954836, 10 pp.</span>
+    <span class="links"><a href="papers/Bacani_Rabago_IJDE_2015.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a> ·
+    doi:<a href="https://doi.org/10.1155/2015/954836">10.1155/2015/954836</a></span>
+  </p>
+</section>
 
-			<li>
-			  <p>
-			    J. F. T. Rabago <br/>  
-			    Localization of tumor through a non-conventional numerical shape optimization technique <br/> 
-			    <font color="myDesign-KanazawaU">Applied Numerical Mathematics, Volume 217, November 2025, Pages 135-171.</font> <br/>
-			    <a href="papers/Rabago_APNUM_2025.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    arXiv:<a href="https://arxiv.org/abs/2502.20656" target="_blank" rel="noopener noreferrer">2502.20656</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1016/j.apnum.2025.06.005">10.1016/j.apnum.2025.06.005</a>
-			  </p>
-			</li>
-
-			<li>
-			  <p>
-			    M. Essahraoui, E. Cherrat, L. Afraites, and <u> J. F. T. Rabago</u> <br/>  
-			    <i>Simultaneous recovery of a corroded boundary and admittance using the Kohn-Vogelius method</i> <br/> 
-			    in <font color="SlateBlue"><i>Computational Methods for Inverse Problems and Applications</i>, ICMDS 2024, Khouribga, Morocco, October 21--22, 2024, Springer Proc. Math. Stat., vol. 498, Springer, Cham, 2025, Pages 73--89.</font> <br/>
-			    <a href="papers/Essahraoui_Cherrat_Afraites_Fergy_2025_simultaneous.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    arXiv:<a href="https://arxiv.org/abs/2506.17938" target="_blank" rel="noopener noreferrer">2506.17938</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1007/978-3-031-89498-5_6">10.1007/978-3-031-89498-5_6</a>
-			  </p>
-			</li>
-
-			<li>
-			  <p>
-			    <u> J. F. T. Rabago</u>, L. Afraites, and H. Notsu<br/>  
-			    Detecting immersed obstacle in Stokes fluid flow using the coupled complex boundary method<br/> 
-			    <font color="myDesign-KanazawaU">SIAM Journal on Control and Optimization, Volume 63, Issue 2, 2025, Pages 822-851</font> <br/>
-			    arXiv:<a href="https://arxiv.org/abs/2403.11819" target="_blank" rel="noopener noreferrer">2403.11819</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1137/24M1647369">10.1137/24M1647369</a>
-			  </p>
-			</li>
-
-			<li>
-			  <p>
-			    <u> J. F. T. Rabago</u>, A. Hadri, L. Afraites, A. S. Hendy, and M. A. Zaky <br/>  
-			    A robust alternating direction method of multipliers numerical scheme for solving geometric inverse problems in a shape optimization setting <br/> 
-			    <font color="myDesign-KanazawaU">Computers & Mathematics with Applications, Volume 175, September 2024, Pages 19-32</font> <br/>
-			    arXiv:<a href="https://arxiv.org/abs/2301.10355v3" target="_blank" rel="noopener noreferrer">2301.10355v3</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1016/j.camwa.2024.08.034">10.1016/j.camwa.2024.08.034</a>
-			  </p>
-			</li>
-
-			<li>
-			  <p>
-			    L. Afraites and <u> J. F. T. Rabago</u> <br/>  
-			    Boundary shape reconstruction with Robin condition: existence result, stability analysis, and inversion via multiple measurements <br/>
-			    <font color="myDesign-KanazawaU">Computational and Applied Mathematics, Volume 43, 2024, Article Number 270, 37 pages </font> <br/>
-			    <a href="papers/main_Afraites_Rabago_2024_COAM.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    arXiv:<a href="https://arxiv.org/abs/2404.05202" target="_blank" rel="noopener noreferrer">2404.05202</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1007/s40314-024-02741-3">10.1007/s40314-024-02741-3</a>
-			  </p>
-			</li>
-
-			<li>  
-			  <p>
-			    Y. Sunayama, M. Kimura, and <u>J. F. T. Rabago</u> <br/>
-			    Comoving mesh method for multi-dimensional moving boundary problems: mean-curvature flow and Stefan problems <br/>
-			    <font color="myDesign-KanazawaU">Mathematics and Computers in Simulation, Volume 221, July 2024, Pages 589-605 </font> <br/>
-			    <a href="papers/Sunayama_Rabago_Kimura_2024_MATCOM.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1016/j.matcom.2024.03.020">10.1016/j.matcom.2024.03.020</a>  
-			  </p>
-			</li>
-
-			<li>
-			  <p>
-			    <u>J. F. T. Rabago</u> and H. Notsu <br/>  
-			    Numerical solution to a free boundary problem for the Stokes equation using the coupled complex boundary method in shape optimization settings <br/> 
-			    <font color="myDesign-KanazawaU">Applied Mathematics and Optimization, Volume 89, 2024, Article Number 2, 56 pages </font> <br/>
-			    <a href="papers/Rabago_Notsu_2023_AMOP.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1007/s00245-023-10065-7">10.1007/s00245-023-10065-7</a>
-			  </p>
-			</li>
-
-			<li>
-			  <p> E. Cherrat, L. Afraites, and <u>J. F. T. Rabago</u> <br/>
-			    Shape reconstruction for advection-diffusion problems by shape optimization method: the case of constant velocity <br/> 
-			    <font color="myDesign-KanazawaU">Discrete and Continuous Dynamical Systems Series S, Volume 18, Issue 1, 2025, Pages 296-320 </font> <br/>
-			    <a href="https://drive.google.com/file/d/18OsocxIt4ewdH3K4aFFjwmJiZ0GYMYbI/view?usp=share_link" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.3934/dcdss.2023186">10.3934/dcdss.2023186</a>
-			  </p>
-			</li>
-
-			<li>
-			  <p> L. Afraites and <u>J. F. T. Rabago</u> <br/>
-			    Shape optimization methods for detecting an unknown boundary with the Robin condition by a single measurement <br/> 
-			    <font color="myDesign-KanazawaU">Discrete and Continuous Dynamical Systems Series S, Volume 18, Issue 1, 2025, Pages 43-76 </font> <br/>
-			    <a href="https://drive.google.com/file/d/14YqmoYpf4BxZ5PgkhgzW7tSxSi-2iXe0/view?usp=share_link" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.3934/dcdss.2022196">10.3934/dcdss.2022196</a>
-			  </p>
-			</li>
-
-			<li>
-			  <p> J. F. T. Rabago <br/>
-			    Numerical solution to the exterior Bernoulli problem using the Dirichlet-Robin energy gap cost functional approach in two and three dimensions <br/> 
-			    <font color="myDesign-KanazawaU">Numerical Algorithms, Volume 94, February 2023, Pages 175-227 </font> <br/>
-			    <a href="papers/Rabago_NUMA_2023.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1007/s11075-023-01497-x">10.1007/s11075-023-01497-x</a>
-			  </p>
-			</li>  
-
-			<li>
-			  <p> J. F. T. Rabago <br/>
-			    On the new coupled complex boundary method in shape optimization framework for solving stationary free boundary problems <br/> 
-			    <font color="myDesign-KanazawaU">Mathematical of Control and Related Fields, Volume 13, Number 4, December 2023, Pages 1362-1398 </font> <br/>
-			    <a href="papers/Rabago_MCRF_2022.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.3934/mcrf.2022041">10.3934/mcrf.2022041</a>
-			  </p>
-			</li>
-
-			<li>  
-			  <p>  Y. Sunayama, <u>J. F. T. Rabago</u>, and M. Kimura <br/>
-			    Comoving mesh method for certain classes of moving boundary problems <br/>
-			    <font color="myDesign-KanazawaU">Japan Journal of Industrial and Applied Mathematics, Volume 39, August 2022, Pages 973–1001 </font> <br/>
-			    <a href="papers/Sunayama_Kimura_Rabago_2022_JJIAM.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1007/s13160-022-00524-z">10.1007/s13160-022-00524-z</a>  
-			  </p>
-			</li>
-
-			<li>  
-			  <p>  <u>J. F. T. Rabago</u> and H. Azegami <br/>
-			    A second-order shape optimization algorithm for solving the exterior Bernoulli free boundary problem using a new boundary cost functional <br/>
-			    <font color="myDesign-KanazawaU">Computational Optimization and Applications, Volume 77, June 2020, Pages 251-305 </font> <br/>
-			    <a href="papers/Rabago_Azegami_COAP_2020.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;  
-			    doi:<a href="https://doi.org/10.1007/s10589-020-00199-7">10.1007/s10589-020-00199-7</a>  
-			  </p>
-			</li>
-
-			<li>  
-			  <p>  <u>J. F. T. Rabago</u> and H. Azegami <br/>
-			    A new energy-gap cost functional approach for the exterior Bernoulli free boundary problem <br/>
-			    <font color="myDesign-KanazawaU">Evolution Equations and Control Theory, Volume 8, Number 4, June 2019, Pages 785-824  </font> <br/>
-			    <a href="papers/Rabago_Azegami_EECT_2019.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;  
-			    doi:<a href="https://doi.org/10.3934/eect.2019038">10.3934/eect.2019038</a>  
-			  </p>
-			</li>  
-
-			<li>  
-			  <p>  <u>J. F. T. Rabago</u> and H. Azegami <br/>
-			    An improved shape optimization formulation of the Bernoulli problem by tracking the Neumann data <br/>
-			    <font color="myDesign-KanazawaU">Journal of Engineering Mathematics, Volume 117, Number 1, June 2019, Pages 1-29  </font> <br/>
-			    <a href="papers/Rabago_Azegami_JEM_2019.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;      
-			    doi:<a href="https://doi.org/10.1007/s10665-019-10005-x">10.1007/s10665-019-10005-x</a>  
-			  </p>
-			</li>
-
-			<li>  
-			  <p>  <u>J. F. T. Rabago</u> and H. Azegami <br/>
-			    Shape optimization approach to defect-shape identification with convective boundary condition via partial boundary measurement <br/>
-			    <font color="myDesign-KanazawaU">Japan Journal of Industrial and Applied Mathematics, Volume 36, Number 1, November 2018, Pages 131-176</font> <br/>
-			    <a href="papers/Rabago_Azegami_JJIAM_2019.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1007/s13160-018-0337-5">10.1007/s13160-018-0337-5</a>  
-			  </p>
-			</li>
-
-			<li>  
-			  <p>  <u>J. F. T. Rabago</u> and J. B. Bacani <br/>
-			    Shape optimization approach for solving the Bernoulli problem by tracking the Neumann data: a Lagrangian formulation <br/>
-			    <font color="myDesign-KanazawaU">Communications in Pure &#38; Applied Analysis, Volume 17, Number 6, June 2018, Pages 2683-2702</font> <br/>
-			    <a href="papers/Bacani_Rabago_CPAA_2018.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.3934/cpaa.2018127">10.3934/cpaa.2018127</a>  
-			  </p>
-			</li>  
-
-			<li>  
-			  <p>  <u>J. F. T. Rabago</u> and J. B. Bacani <br/>
-			    Shape optimization approach to the Bernoulli problem: a Lagrangian formulation <br/>
-			    <font color="myDesign-KanazawaU">IAENG International Journal of Applied Mathematics, Volume 47, Number 4, November 2017, Pages 417-424</font> <br/>
-			    <a href="papers/Rabago_Bacani_IJAM_2017.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href=" "> </a>  
-			  </p>
-			</li>  
-
-			<li>  
-			  <p>  J. B. Bacani and <u>J. F. T. Rabago</u><br/>
-			    On the second-order shape derivative of the Kohn-Vogelius objective functional using the velocity method <br/>
-			    <font color="myDesign-KanazawaU">International Journal of Differential Equations, Volume 2015, December 2015, Article ID 954836, 10pp </font> <br/>
-			    <a href="papers/Bacani_Rabago_IJDE_2015.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>&nbsp;&nbsp;&nbsp;
-			    doi:<a href="https://doi.org/10.1155/2015/954836">10.1155/2015/954836</a>  
-			  </p>
-			</li>  
-					
-	  	</ol>
-      </ul>
-    </div>
-  </div>
-
-  <script>
-  function toggleSelectedPapers() {
-    var content = document.getElementById('selectedPapersContent');
-    var arrow = document.getElementById('selectedPapersArrow');
-    var isHidden = content.style.display === 'none';
-    content.style.display = isHidden ? '' : 'none';
-    arrow.innerHTML = isHidden ? '&#9660;' : '&#9654;';
-  }
-  </script>
-
-  
- 
- 
-
-
-
-
-
-
-<!-- !PAGE CONTENT! -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= --> 
 <!-- TALKS -->
-<div class="myDesign-container" id="talks" style="margin-top:75px">
-  <h1 class="myDesign-text-myColor"><b>Talks</b></h1>  
-	<!-- !UPCOMING TALKS! -->
-	<h2>Upcoming Talks</h2>
-	<div class="myDesign-row">
-	<div class="myDesign-col m12 l12">
-	  <ul class="myDesign-ul">
+<section id="talks">
+  <h2>Talks</h2>
 
-<!--		  <li>
-		    <p>TBA</p>
-		  </li> -->
-	  <li>
-	    <p><b><u>Invited</u></b> TBD<br>
-	    <a target="_blank" rel="noopener noreferrer" href="https://www-cm.acs.i.kyoto-u.ac.jp/tj2026/"><font color="myDesign-KanazawaU">2026 Japan-Taiwan Joint Workshop on Inverse Problems and Related Topics</font></a><br>
-		Lecture Room 32, School of Science Main Building, Tsushima campus, Okayama University, Japan, November 27-29, 2026<br>
-	    Talk scheduled on November TBA, 2026.</p>
-	  </li>
-	  
-	  </ul>
-	</div>
-	</div>		  
-	
+  <h3>Upcoming Talks</h3>
+  <ul>
+    <li>
+      <span class="invited">Invited</span> TBD<br>
+      <a target="_blank" rel="noopener noreferrer" href="https://www-cm.acs.i.kyoto-u.ac.jp/tj2026/">2026 Japan-Taiwan Joint Workshop on Inverse Problems and Related Topics</a><br>
+      Lecture Room 32, School of Science Main Building, Tsushima campus, Okayama University, Japan, November 27–29, 2026.<br>
+      Talk scheduled on November TBA, 2026.
+    </li>
+  </ul>
 
-    <!-- !RECENT TALKS! --> 
-    <h2 id="recentTalksToggle" onclick="toggleRecentTalks()" style="cursor:pointer; user-select:none;">
-      Recent Talks <span id="recentTalksArrow" style="font-size:0.7em;">&#9654;</span>
-    </h2>
+  <h3>Recent Talks</h3>
+    <ul>
+      <li>
+        Topological and shape optimization methods for inverse shape reconstruction<br>
+        Minisymposium on <em>Recent Advances in Numerical Shape and Topology Optimization Methods: From Theory to Practice</em> (organized by W. Gong, J. F. T. Rabago, and S. Zhu)<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://easiam26.github.io">The 19th SIAM East Asian Section Conference</a><br>
+        Oriental Hotel, Jeju Island, Korea, August 23–27, 2026. Talk scheduled on August 27, 2026.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Topological and shape optimization methods for inverse shape reconstruction in elliptic PDEs<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://comfos-nasc2026.github.io/CoMFoSNASC2026/">Continuum Mechanics Focusing on Singularities–Numerical Analysis &amp; Scientific Computing 2026</a><br>
+        Lapu-Lapu City, Cebu, Philippines, June 20–23, 2026. Talk scheduled on June 20, 2026.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Coupling the coupled complex boundary method and ADMM for constrained shape optimization in geometric inverse problems<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://ncts.ntu.edu.tw/events_2_detail.php?nid=550">The 10th Young Scholar Symposium of East Asia Section of IPIA</a><br>
+        National Taiwan University, Taipei, Taiwan, April 24–25, 2026. Talk scheduled on April 25, 2026.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Can we see the invisible? Mathematical methods for detecting hidden regions via shape and topological optimization<br>
+        De La Salle University, Manila City, Philippines, March 11, 2026.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Shape identification in fluid flows via shape optimization<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://jftrabago.github.io/AMSC2026Kanazawa/">Workshop on Applied Mathematics and Scientific Computing</a><br>
+        Kanazawa, Japan, January 28, 2026.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Non-conventional shape optimization via coupled complex boundary method for shape identification problems<br>
+        Institute of Mathematics, University of the Philippines Diliman, Quezon City, Philippines, December 15, 2025.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Innovative Research Approaches in Mathematics and Engineering: Trends and Opportunities<br>
+        Innovative Horizons: Advancing Research in Engineering Sciences and Mathematics<br>
+        University of Saint Louis Tuguegarao, Tuguegarao, Philippines, November 20–21, 2025. On-line talk on November 20, 2025.
+      </li>
+      <li>
+        <span class="invited">Invited</span> An inverse shape optimization approach for localizing subdermal tumors and burns<br>
+        Faculty of Sciences and Techniques, Université Sultan Moulay Slimane, Beni Mellal, Morocco, November 4, 2025.
+      </li>
+      <li>
+        <span class="invited">Invited</span> An inverse shape optimization approach for localizing subdermal tumors and burns<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://picof2025.sciencesconf.org/resource/page/id/26">11th International Conference on Inverse Problems, Control and Shape Optimization (PICOF'2025)</a><br>
+        Mehari Hammamet Hotel, Hammamet, Tunisia, October 28–31, 2025. Talk scheduled on October 30, 2025.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Numerical methods for transport coefficient recovery<br>
+        2025 International Workshop on Modeling, Analysis and Computation with Application in Economics and AI &amp; Joint Mathematics Symposium between Shanghai University of Finance and Economics and Kanazawa University<br>
+        Shanghai University of Finance and Economics, Shanghai, China, October 25–26, 2025. Talk scheduled on October 25, 2025.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Inverse geometry via shape optimization: numerical solution and well-posedness from a moving boundary framework<br>
+        Minisymposium on <em>Recent Advances in PDE-constrained Optimizations</em> (organized by W. Gong, S. Zhu, and Z. Zhou)<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.math.cuhk.edu.hk/conference/hksiam2025/index.php">The Third HKSIAM Biennial Conference</a><br>
+        The Chinese University of Hong Kong, Hong Kong, July 7–11, 2025. Talk scheduled on July 8, 2025.
+      </li>
+      <li>
+        Inverse geometric reconstruction of subdermal burn region from thermal data<br>
+        Minisymposium on <em>Recent Advances in PDE-Constrained Optimization and Optimal Controls</em> (organized by H. Fujiwara, W. Gong, and J. F. T. Rabago)<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://easiam2025inmanila.github.io/easiam2025inmanila/">The 18th SIAM East Asian Section Conference</a><br>
+        De La Salle University, Manila, Philippines, June 30–July 4, 2025. Talk scheduled on July 2, 2025.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Shape optimization for inverse geometry: numerical methods and well-posedness in a moving boundary setting<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://sites.google.com/view/shapeseminar">Shape Seminar</a><br>
+        東北大学 レジリエント社会構築イノベーションセンター 306 大会議室, June 23, 2025.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Shape optimization for improved diagnosis: tumor localization and burn depth assessment<br>
+        Mathematical Society of the Philippines - CAR, Regions 1 and 2 Chapter: Mathematics Webinar Series<br>
+        online, May 24, 2025.
+      </li>
+      <li>
+        Localization of tumor through a non-conventional numerical shape optimization technique<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://jftrabago.github.io/MNANP2025/">Workshop on Modeling and Numerical Analysis of Nonlinear Phenomena 2025</a><br>
+        Shiinoki Cultural Complex, Kanazawa, Japan, March 16–17, 2025. Talk scheduled on March 16, 2025.
+      </li>
+      <li>
+        Simultaneous reconstruction of shape and coefficients for corrosion detection via the Kohn-Vogelius approach<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://jsiam.org/jsiam_archive/past_presentations/union2025/">第21回日本応用数理学会研究部会連合発表会</a><br>
+        岡山大学津島キャンパス、2025年3月5日〜3月7日. Talk scheduled on March 5, 2025.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Obstacle detection in Stokes fluid flow using a novel shape optimization approach<br>
+        <a target="_blank" rel="noopener noreferrer" href="http://conf.nsc.ru/rusjapfrac4/en/">Russia-Japan-India Workshop "Mathematical analysis of fracture phenomena for elastic structures and its applications"</a><br>
+        via MS Teams, December 11–13, 2024. Talk scheduled on December 12, 2024.
+      </li>
+      <li>
+        <span class="invited">Invited</span> A Non-Conventional Reconstruction Approach for Parameter Identification in Inverse Optical Tomography with Single Boundary Measurement<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://fips.fi/inverse-days-2024/">Inverse Days 2024</a><br>
+        Lapland Hotel Oulu, Oulu, Finland, December 10–13, 2024. Talk scheduled on December 11, 2024.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Applications of Moving Meshes in Numerical Shape Optimization and Moving Boundary Problems<br>
+        RIMS joint research on the <em>Development of Numerical Analysis that Contributes to Computational Science</em><br>
+        <a target="_blank" rel="noopener noreferrer" href="http://na.nuap.nagoya-u.ac.jp/~rims2024/">RIMS共同研究・計算科学に資する数値解析学の展開</a><br>
+        Kyoto University, Kyoto, Japan, October 23–25, 2024. Talk scheduled on October 23, 2024.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Non-conventional shape optimization techniques for shape identification problems<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://sites.google.com/site/macmpimadegawa2017/index/2024">Workshop for Young Scholars: Control and Inverse Problems on Waves, Oscillations and Flows - Mathematical Analysis and Computational Methods</a><br>
+        若手研究集会「波動・振動・流れの制御と逆問題 -理論と数値計算-」<br>
+        Kyoto University, Kyoto, Japan, September 24–25, 2024. Talk scheduled on September 25, 2024.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Numerical shape optimization method for parameter identification problems in diffuse optical tomography with a non-convex boundary interface using a single boundary measurement<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://jsiam.org/annual2024/">日本応用数理学会2024年度年会</a><br>
+        京都大学、2024年9月14日–16日. Talk scheduled on September 14, 2024.
+      </li>
+      <li>
+        A non-conventional shape optimization method for shape identification problems<br>
+        Minisymposium on <em>Recent Advances in Numerical Shape Optimization Methods: From Theory to Practice</em> (organized by W. Gong, S. Zhu, and J. F. T. Rabago)<br>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.easiam2024.org">The 17th SIAM East Asian Section Conference</a><br>
+        University of Macau, Macao SAR, China, June 26–July 1, 2024.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Obstacle detection in Stokes fluid flow using a novel shape optimization approach<br>
+        Minisymposium on <em>Interface motion in complex systems</em> (organized by M. Benes and K. Sakakibara)<br>
+        ALGORITMY 2024: Central-European Conference on Scientific Computing<br>
+        High Tatra Mountains, Slovakia, March 15–20, 2024.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Non-conventional approximation procedures for parameter identification problems<br>
+        第20回日本応用数理学会研究部会連合発表会<br>
+        長岡技術科学大学、2024年3月4日〜3月6日.
+      </li>
+      <li>
+        On the application of Alternating Direction of Method of Multipliers to shape identification problems<br>
+        第20回日本応用数理学会研究部会連合発表会<br>
+        長岡技術科学大学、2024年3月4日〜3月6日.
+      </li>
+      <li>
+        On the coupled complex boundary method for obstacle shape recovery in Stokes fluid flow<br>
+        第25回研究集会数理設計研究部会<br>
+        香川大学町キャンパス、2023年12月19日.
+      </li>
+      <li>
+        Detecting immersed obstacle in Stokes fluid using coupled complex boundary method<br>
+        2023 Joint Meeting on Applied Mathematics, Organized by the Mathematical Society of Japan<br>
+        Faculty of Advanced Science and Technology, Ryukoku University, Seta Campus, Otsu, Shiga, Japan, December 14–16, 2023.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Non-conventional shape optimization methods for solving shape inverse problems<br>
+        Minisymposium on <em>Shape Optimization and Inverse Problems</em> (organized by L. Afraites, A. Laurain, and J. F. T. Rabago)<br>
+        Applied Inverse Problems 2023<br>
+        University of Göttingen, Göttingen, Germany, September 4–8, 2023.
+      </li>
+      <li>
+        <span class="invited">Invited</span> Numerical solution to a free boundary problem for the Stokes equation using the coupled complex boundary method in shape optimization setting<br>
+        Minisymposium on <em>Interface motion and related topics</em> (organized by M. Beneš and T. Ishiwata)<br>
+        International Congress on Industrial and Applied Mathematics 2023<br>
+        Waseda University, Tokyo, Japan, August 20–25, 2023.
+      </li>
+    </ul>
+</section>
 
-    <div class="myDesign-row" id="recentTalksContent" style="display:none;">
-      <div class="myDesign-col m12 l12">
-        <ul class="myDesign-ul">
-  		  <li>
-  		    <p>Topological and shape optimization methods for inverse shape reconstruction<br>
-  		    Minisymposium on <i>Recent Advances in Numerical Shape and Topology Optimization Methods: From Theory to Practice</i> (organized by W. Gong, J. F. T. Rabago, and S. Zhu)<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://easiam26.github.io"><font color="myDesign-KanazawaU">The 19th SIAM East Asian Section Conference</font></a><br>
-  		    Oriental Hotel, Jeju Island, Korea, August 23-27, 2026<br>
-  		    Talk scheduled on August 27, 2026.</p>
-  		  </li>
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> Topological and shape optimization methods for inverse shape reconstruction in elliptic PDEs<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://comfos-nasc2026.github.io/CoMFoSNASC2026/"><font color="myDesign-KanazawaU">Continuum Mechanics Focusing on Singularities–Numerical Analysis & Scientific Computing 2026</font></a><br>
-  		    Lapu-Lapu City, Cebu, Philippines, June 20-23, 2026<br>
-  		    Talk scheduled on June 20, 2026.
-  		  </p>
-  		  </li>
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> Coupling the coupled complex boundary method and ADMM for constrained shape optimization in geometric inverse problems<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://ncts.ntu.edu.tw/events_2_detail.php?nid=550"><font color="myDesign-KanazawaU">The 10th Young Scholar Symposium of East Asia Section of IPIA</font></a><br>
-  		    National Taiwan University, Taipei, Taiwan, April 24-25, 2026<br>
-  		    Talk scheduled on April 25, 2026.
-  		  </p>
-  		  </li>
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> Can we see the invisible? Mathematical methods for detecting hidden regions via shape and topological optimization<br>
-  			De La Salle University, Manila City, Philippines, March 11, 2026
-  		  </p>
-  		  </li>
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> Shape identification in fluid flows via shape optimization<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://jftrabago.github.io/AMSC2026Kanazawa/"><font color="myDesign-KanazawaU">Workshop on Applied Mathematics and Scientific Computing</font></a><br>
-  		    Kanazawa, Japan, January 28, 2026<br>
-  		    <!-- Talk scheduled on October 30, 2025. -->
-  		  </p>
-  		  </li>
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> Non-conventional shape optimization via coupled complex boundary method for shape identification problems<br>
-  			Institute of Mathematics, University of the Philippines Diliman, Quezon City, Philippines, December 15, 2025
-  		  </p>
-  		  </li>
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> Innovative Research Approaches in Mathematics and Engineering: Trends and Opportunities<br>
-  		    <a target="_blank" rel="noopener noreferrer" href=" "><font color="myDesign-KanazawaU">Innovative Horizons: Advancing Research in Engineering Sciences and Mathematics</font></a><br> University of Saint Louis Tuguegarao, Tuguegarao, Philippines, November 20--21, 2025<br>
-  		    On-line talk scheduled on November 20, 2025.</p>
-  		  </li>
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> An inverse shape optimization approach for localizing subdermal tumors and burns<br>
-  			Faculty of Sciences and Techniques, Université Sultan Moulay Slimane, Beni Mellal, Morocco, November 4, 2025
-  		  </p>
-  		  </li>
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> An inverse shape optimization approach for localizing subdermal tumors and burns<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://picof2025.sciencesconf.org/resource/page/id/26"><font color="myDesign-KanazawaU">11th International Conference on Inverse Problems, Control and Shape Optimization (PICOF'2025)</font></a><br>
-  		    Mehari Hammamet Hotel, Hammamet, Tunisia, October 28–31, 2025<br>
-  		    Talk scheduled on October 30, 2025.
-  		  </p>
-  		  </li>
-		  
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> Numerical methods for transport coefficient recovery<br>
-  		    <a target="_blank" rel="noopener noreferrer" href=" "><font color="myDesign-KanazawaU">2025 International Workshop on Modeling, Analysis and Computation with Application in Economics and AI & Joint Mathematics Symposium between Shanghai University of Finance and Economics and Kanazawa University</font></a><br>
-  		    Shanghai University of Finance and Economics, Shanghai, China, October 25–26, 2025<br>
-  			Talk scheduled on October 25, 2025.
-  			</p>
-  		  </li>
-		  
-  		  <li>
-  		    <p><b><u>Invited</u></b> Inverse geometry via shape optimization: numerical solution and well-posedness from a moving boundary framework<br>
-  		    Minisymposium on <i>Recent Advances in PDE-constrained Optimizations</i> (organized by W. Gong, S. Zhu, and Z. Zhou)<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://www.math.cuhk.edu.hk/conference/hksiam2025/index.php"><font color="myDesign-KanazawaU">The Third HKSIAM Biennial Conference</font></a><br>
-  		    The Chinese University of Hong Kong, Hong Kong, July 7–11, 2025<br>
-  		    Talk scheduled on July 8, 2025.</p>
-  		  </li>
-
-  		  <li>
-  		    <p>Inverse geometric reconstruction of subdermal burn region from thermal data<br>
-  		    Minisymposium on <i>Recent Advances in PDE-Constrained Optimization and Optimal Controls</i> (organized by H. Fujiwara, W. Gong, and J. F. T. Rabago)<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://easiam2025inmanila.github.io/easiam2025inmanila/"><font color="myDesign-KanazawaU">The 18th SIAM East Asian Section Conference</font></a><br>
-  		    De La Salle University, Manila, Philippines, June 30–July 4, 2025<br>
-  		    Talk scheduled on July 2, 2025.</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Shape optimization for inverse geometry: numerical methods and well-posedness in a moving boundary setting<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://sites.google.com/view/shapeseminar"><font color="myDesign-KanazawaU">Shape Seminar</font></a><br>
-  		    東北大学 レジリエント社会構築イノベーションセンター 306 大会議室, June 23, 2025</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Shape optimization for improved diagnosis: tumor localization and burn depth assessment<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="#"><font color="myDesign-KanazawaU">Mathematical Society of the Philippines - CAR, Regions 1 and 2 Chapter: Mathematics Webinar Series</font></a><br>
-  		    online, May 24, 2025</p>
-  		  </li>
-
-  		  <li>
-  		    <p>Localization of tumor through a non-conventional numerical shape optimization technique<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://jftrabago.github.io/MNANP2025/"><font color="myDesign-KanazawaU">Workshop on Modeling and Numerical Analysis of Nonlinear Phenomena 2025</font></a><br>
-  		    Shiinoki Cultural Complex, Kanazawa, Japan, March 16–17, 2025<br>
-  		    Talk scheduled on March 16, 2025.</p>
-  		  </li>
-
-  		  <li>
-  		    <p>Simultaneous reconstruction of shape and coefficients for corrosion detection via the Kohn-Vogelius approach<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://jsiam.org/jsiam_archive/past_presentations/union2025/"><font color="myDesign-KanazawaU">第21回日本応用数理学会研究部会連合発表会</font></a><br>
-  		    岡山大学津島キャンパス、2025年3月5日〜3月7日<br>
-  		    Talk scheduled on March 5, 2025.</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Obstacle detection in Stokes fluid flow using a novel shape optimization approach<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="http://conf.nsc.ru/rusjapfrac4/en/"><font color="myDesign-KanazawaU">Russia-Japan-India Workshop "Mathematical analysis of fracture phenomena for elastic structures and its applications"</font></a><br>
-  		    via MS Teams, December 11–13, 2024<br>
-  		    Talk scheduled on December 12, 2024.</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> A Non-Conventional Reconstruction Approach for Parameter Identification in Inverse Optical Tomography with Single Boundary Measurement<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://fips.fi/inverse-days-2024/"><font color="myDesign-KanazawaU">Inverse Days 2024</font></a><br>
-  		    Lapland Hotel Oulu, Oulu, Finland, December 10–13, 2024<br>
-  		    Talk scheduled on December 11, 2024.</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Applications of Moving Meshes in Numerical Shape Optimization and Moving Boundary Problems<br>
-  		    RIMS joint research on the <i>Development of Numerical Analysis that Contributes to Computational Science</i><br>
-  		    <a target="_blank" rel="noopener noreferrer" href="http://na.nuap.nagoya-u.ac.jp/~rims2024/"><font color="myDesign-KanazawaU">RIMS共同研究・計算科学に資する数値解析学の展開</font></a><br>
-  		    Kyoto University, Kyoto, Japan, October 23–25, 2024<br>
-  		    京都大学・数理解析研究所、2024年10月23日～25日<br>
-  		    Talk scheduled on October 23, 2024.</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Non-conventional shape optimization techniques for shape identification problems<br>
-  		    <i><a target="_blank" rel="noopener noreferrer" href="https://sites.google.com/site/macmpimadegawa2017/index/2024"><font color="myDesign-KanazawaU">Workshop for Young Scholars: Control and Inverse Problems on Waves, Oscillations and Flows - Mathematical Analysis and Computational Methods</font></a></i><br>
-  		    若手研究集会「波動・振動・流れの制御と逆問題 -理論と数値計算-」<br>
-  		    Kyoto University, Kyoto, Japan, September 24–25, 2024<br>
-  		    京都大学・理学研究科、2024年9月24日～25日<br>
-  		    Talk scheduled on September 25, 2024.</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Numerical shape optimization method for parameter identification problems in diffuse optical tomography with a non-convex boundary interface using a single boundary measurement<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://jsiam.org/annual2024/"><font color="myDesign-KanazawaU">日本応用数理学会2024年度年会</font></a><br>
-  		    京都大学、2024年9月14日–16日<br>
-  		    Talk scheduled on September 14, 2024.</p>
-  		  </li>
-
-  		  <li>
-  		    <p>A non-conventional shape optimization method for shape identification problems<br>
-  		    Minisymposium on <i>Recent Advances in Numerical Shape Optimization Methods: From Theory to Practice</i> (organized by W. Gong, S. Zhu, and J. F. T. Rabago)<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="https://www.easiam2024.org"><font color="myDesign-KanazawaU">The 17th SIAM East Asian Section Conference</font></a><br>
-  		    University of Macau, Macao SAR, China, June 26–July 1, 2024</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Obstacle detection in Stokes fluid flow using a novel shape optimization approach<br>
-  		    Minisymposium on <i>Interface motion in complex systems</i> (organized by M. Benes and K. Sakakibara)<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="#"><font color="myDesign-KanazawaU">ALGORITMY 2024: Central-European Conference on Scientific Computing</font></a><br>
-  		    High Tatra Mountains, Slovakia, March 15–20, 2024</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Non-conventional approximation procedures for parameter identification problems<br>
-  		    第20回日本応用数理学会研究部会連合発表会<br>
-  		    長岡技術科学大学、2024年3月4日〜3月6日</p>
-  		  </li>
-
-  		  <li>
-  		    <p>On the application of Alternating Direction of Method of Multipliers to shape identification problems<br>
-  		    第20回日本応用数理学会研究部会連合発表会<br>
-  		    長岡技術科学大学、2024年3月4日〜3月6日</p>
-  		  </li>
-
-  		  <li>
-  		    <p>On the coupled complex boundary method for obstacle shape recovery in Stokes fluid flow<br>
-  		    第25回研究集会数理設計研究部会<br>
-  		    香川大学町キャンパス、2023年12月19日</p>
-  		  </li>
-
-  		  <li>
-  		    <p>Detecting immersed obstacle in Stokes fluid using coupled complex boundary method<br>
-  		    2023 Joint Meeting on Applied Mathematics, Organized by the Mathematical Society of Japan<br>
-  		    Faculty of Advanced Science and Technology, Ryukoku University, Seta Campus, Otsu, Shiga, Japan, December 14–16, 2023</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Non-conventional shape optimization methods for solving shape inverse problems<br>
-  		    Minisymposium on <i>Shape Optimization and Inverse Problems</i> (organized by L. Afraites, A. Laurain, and J. F. T. Rabago)<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="#"><font color="myDesign-KanazawaU">Applied Inverse Problems 2023</font></a><br>
-  		    University of Göttingen, Göttingen, Germany, September 4–8, 2023</p>
-  		  </li>
-
-  		  <li>
-  		    <p><b><u>Invited</u></b> Numerical solution to a free boundary problem for the Stokes equation using the coupled complex boundary method in shape optimization setting<br>
-  		    Minisymposium on <i>Interface motion and related topics</i> (organized by M. Beneš and T. Ishiwata)<br>
-  		    <a target="_blank" rel="noopener noreferrer" href="#"><font color="myDesign-KanazawaU">International Congress on Industrial and Applied Mathematics 2023</font></a><br>
-  		    Waseda University, Tokyo, Japan, August 20–25, 2023</p>
-  		  </li>
-        </ul>
-      </div>
-    </div>
-
-    <script>
-    function toggleRecentTalks() {
-      var content = document.getElementById('recentTalksContent');
-      var arrow = document.getElementById('recentTalksArrow');
-      var isHidden = content.style.display === 'none';
-      content.style.display = isHidden ? '' : 'none';
-      arrow.innerHTML = isHidden ? '&#9660;' : '&#9654;';
-    }
-    </script>
-</div>	
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
-
-<!-- !PAGE CONTENT! -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
 <!-- TEACHING -->
-<div class="myDesign-container" id="teaching" style="margin-top:75px">	  
-		    
-  <h1 class="myDesign-text-myColor"><b>Teaching</b></h1>
-  
-    <div class="myDesign-col m12 l12">
-      <ul>
-		  <li>
-		      <p><span id="teach1Toggle" onclick="toggleTeaching('teach1Content','teach1Arrow')" style="cursor:pointer; user-select:none;"><strong>Part-Time Lecturer</strong>, Graduate Course: <em>Applied Analysis</em> <span id="teach1Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
-		      <span id="teach1Content" style="display:none;">
-		      Kanazawa University, Kanazawa City, Japan <br />
-		      <!-- 2026.04.06 - 2025.06.04, Q1 <br />
-			  2025.04.11 - 2025.05.30, Q1 <br />
-		      2024.04.11 - 2024.05.30, Q1 <br />
-		      2023.04.06 - 2023.06.01, Q1 -->
-		      2026.04.06 - 2026.06.04, Q1 <br />
-			  2025.04.07 - 2025.06.04, Q1 <br />
-		      2024.04.08 - 2024.06.05, Q1 <br />
-		      2023.04.06 - 2023.06.05, Q1
-		      </span>
-		      </p>
-		  </li>
-
-		  <li>
-		      <p><span id="teach2Toggle" onclick="toggleTeaching('teach2Content','teach2Arrow')" style="cursor:pointer; user-select:none;"><strong>Adjunct Assistant Professor</strong>, Undergraduate Courses: <em>College Algebra</em> <span id="teach2Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
-		      <span id="teach2Content" style="display:none;">
-		      Temple University, Japan Campus, Setagaya City, Japan <br />
-		      2024.08.26 - 2024.12.18 (2024.10.31), Fall 2024 <br />
-		      2024.05.20 - 2024.08.07, Summer 2024 <br />
-		      2024.01.08 - 2024.05.01, Spring 2024
-		      </span>
-		      </p>
-		  </li>
-
-		  <li>
-		      <p><span id="teach3Toggle" onclick="toggleTeaching('teach3Content','teach3Arrow')" style="cursor:pointer; user-select:none;"><strong>Lecturer</strong>, Undergraduate Course: <em>Pre-Calculus</em> <span id="teach3Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
-		      <span id="teach3Content" style="display:none;">
-		      University of the Philippines Baguio, Baguio City, Philippines <br />
-		      2015.01.22 - 2015.06.08
-		      </span>
-		      </p>
-		  </li>
-
-		  <li>
-		      <p><span id="teach4Toggle" onclick="toggleTeaching('teach4Content','teach4Arrow')" style="cursor:pointer; user-select:none;"><strong>Instructor</strong>, Undergraduate Courses: <em>Mathematical Biology, Elementary Analysis, and Calculus</em> <span id="teach4Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
-		      <span id="teach4Content" style="display:none;">
-		      Central Luzon State University, Science City of Muñoz, Nueva Ecija, Philippines <br />
-		      2013.11.12 - 2014.04.30, AY 2013-2014, 2nd Semester
-		      </span>
-		      </p>
-		  </li>
-
-		  <li>
-			  <p><span id="teach5Toggle" onclick="toggleTeaching('teach5Content','teach5Arrow')" style="cursor:pointer; user-select:none;"><strong>Lecturer</strong>, Undergraduate Courses: <em>Elementary Analysis, Calculus, and Pre-Calculus</em> <span id="teach5Arrow" style="font-size:0.7em;">&#9654;</span></span><br />
-			  <span id="teach5Content" style="display:none;">
-			  Central Luzon State University, Science City of Muñoz, Nueva Ecija, Philippines <br />
-			  2013.06.10 - 2013.10.18, AY 2013-2014, 1st Semester <br />
-			  2012.11.19 - 2013.03.27, AY 2012-2013, 2nd Semester <br />
-			  2012.06.13 - 2012.10.26, AY 2012-2013, 1st Semester <br />
-			  2012.04.02 - 2012.05.11, AY 2011-2012, Summer <br />
-			  2011.11.08 - 2012.03.23, AY 2011-2012, 2nd Semester <br />
-			  2011.06.06 - 2011.10.21, AY 2011-2012, 1st Semester <br />
-			  2011.04.11 - 2011.05.27, AY 2010-2011, Summer
-			  </span>
-			  </p>
-		  </li>
-      </ul>
-    </div>
-</div>
-
-<script>
-function toggleTeaching(contentId, arrowId) {
-  var content = document.getElementById(contentId);
-  var arrow = document.getElementById(arrowId);
-  var isHidden = content.style.display === 'none';
-  content.style.display = isHidden ? '' : 'none';
-  arrow.innerHTML = isHidden ? '&#9660;' : '&#9654;';
-}
-</script>
-
- 
- 
- 
- 
- 
-<!-- !PAGE CONTENT! -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= --> 
-<!-- EVENTS -->
-<div class="myDesign-container" id="events" style="margin-top:75px">	  
-		    
-  <h1 class="myDesign-text-myColor"><b>Research Meetings and Seminars</b></h1>
-  
-  <div class="myDesign-row">
-    <div class="myDesign-col m12 l12">
-      <ul>
-		  <li>
-			<p>
-				<a href="https://www.mathsoc.jp/~dfe/workshop.html">研究集会等の情報 (Informations on Research Meetings, etc)</a>
-		    </p>
-		  </li>
-		  
-		  <li>
-			<p>
-				<a href="https://jftrabago.github.io/WMANP/">現象数理解析研究会 (Workshop on Mathematical Analysis for Nonlinear Phenomena)</a>
-		    </p>
-		  </li>
-		
-		  <li>
-			<p>
-				<a href="http://polaris.s.kanazawa-u.ac.jp/kas/">金沢解析セミナー (Kanazawa Analysis Seminar)</a>
-		    </p>
-		  </li>
-	  
-		  <li>
-			<p>
-				<a href="https://scheme.hn/deds/">微分方程式とデータサイエンス研究会 (Differential Equations in Data Science)</a>
-			</p>
-		  </li>
-	  
-		  <li>
-			<p>
-				<a href="https://sites.google.com/site/masatowebj/wmanp">現象数理解析研究会 (Workshop on Mathematical Analysis for Nonlinear Phenomena)</a>
-			</p>
-		  </li>
-	  
-		  <li>
-			<p>
-				<a href="https://sites.google.com/view/shapeseminar">Shape Seminar</a>
-			</p>
-		  </li>
-      </ul>
-    </div>
-  </div>
-  
-
-
-
-
-
-  <h1 class="myDesign-text-myColor"><b>Events</b></h1>
-  
-  <div class="myDesign-row">
-    <div class="myDesign-col m12 l12">
-      <ul>
-		  <li>
-			<p>
-				<s><a href="https://jftrabago.github.io/WMANP/">The 22nd Workshop on Mathematical Analysis for Nonlinear Phenomena</a></s>
-			</p>
-		  </li>
-	  
-		  <li>
-			<p>
-			<s>	
-				<a href="https://sites.google.com/view/deds2025/">International Conference: Differential Equations for Data Science 2025 (DEDS2025), Kyoto, Japan</a>
-		    </s>
-		    </p>
-		  </li>
-	  
-		  <li>
-			<p>
-				<s>	
-				<a href="https://jftrabago.github.io/MNANP2025/">Workshop on Modeling and Numerical Analysis of Nonlinear Phenomena 2025 (MNANP2025), Kanazawa, Japan</a>
-			    </s>	
-		    </p>
-		  </li>
-
-		  <li>
-			<p>
-		  		<s>
-				<a href="https://comads.science.upd.edu.ph">International Workshop on Computational and Mathematical Methods in Data Science 2025 (CoMaDS2025), Boracay, Aklan, Philippines</a>
-				</s>
-		    </p>
-		  </li>
-
-	
-		  <li>
-			<p>
-				<s><a href="https://easiam2025inmanila.github.io/easiam2025inmanila/">The 18th SIAM East Asian Section Conference (EASIAM2025), Manila, Philippines</a></s>
-		    </p>
-		  </li>
-		  
-		  <li>
-			<p>
-				<s><a href="http://jftrabago.github.io/CASKUWorkshop2025/">Czech Academy of Sciences--Kanazawa University Workshop, Kanazawa, Ishikawa, Japan</a></s>
-		    </p>
-		  </li>
-
-				
-		  <li>
-			<s>
-			<p>
-				<a href="https://seamsschool2025baguio.github.io/seamsschool2025baguio/">SEAMS School 2025 Baguio (Inverse Problems and Optimal Control), Baguio, Philippines</a>
-		    </p>
-			</s>
-		  </li>
-		  
-		<li>
-		<s>
-		<p>
-			<a href="https://jftrabago.github.io/AMSC2026Kanazawa/">AMSC 2026: Workshop on Applied Mathematics and Scientific Computing, Kanazawa, Ishikawa, Japan</a>
-		</p>
-		</s>
-		</li>
-		
-		
-		<li>
-		<s>
-		<p>
-			<a href="https://comfos-nasc2026.github.io/CoMFoSNASC2026/">CoMFos-NASC 2026, Lapu-Lapu City, Cebu, Philippines</a>
-		</p>
-		</s>
-		</li>	
-		
-		<li>
-		<s>
-		<p>
-			<a href="https://jftrabago.github.io/3rdAMSC2026Kanazawa/">3rd AMSC 2026: Workshop on Applied Mathematics and Scientific Computing, Kanazawa, Ishikawa, Japan</a>
-		</p>
-		</s>
-		</li>
-		  
-      </ul>
-    </div>
-  </div>
-</div>
- 
- 
- 
- 
- 
-
-
-
-
-
-
-
-<!-- !PAGE CONTENT! -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= --> 
-<!-- Contact -->
-<div class="myDesign-container" id="contacts" style="margin-top:75px">
-  <h1 class="myDesign-text-myColor"><b>Contacts</b></h1>
-
-  <div style="display: flex; gap: 40px; flex-wrap: wrap;">
-    
-    <!-- Postal Address -->
-    <div style="flex: 1; min-width: 300px;">
-      <h2>Postal Address</h2>
-      <ul>
-        <li>
-          <p>
-            Room 211, Building C4 <br />
-            (Telephone Number: +81-76-264-6129) <br />
-            Faculty of Mathematics and Physics <br />
-            <span style="color:blue;">研究室２１１自然科学５号館</span><br />
-            <span style="color:blue;">理工研究域 数物科学系</span><br />
-            Institute of Science and Engineering <br />
-            Kanazawa University, Kakuma Campus <br />
-            Kanazawa, 920-1192, Ishikawa, Japan
-          </p>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Email -->
-    <div style="flex: 1; min-width: 300px;">
-      <h2>E-Mail Addresses</h2>
-      <ul>
-        <li><p><s>rabagojft[at]se.kanazawa-u.ac.jp</s> (This email address is no longer in use.)</p></li>
-        <li><p>jftrabago[at]gmail.com</p></li>
-        <li><p>jfrabago[at]gmail.com</p></li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-
-
-
-
- 
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->
-<!-- ================================================================================= -->   
-<!-- End page content -->
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- MAIN.CSS Container -->
-<div class="myDesign-container myDesign-padding-32" 
-     style="margin-top:75px;padding-right:58px;">
-
-    <p class="myDesign-right">
-        &copy;
-        <a href="https://jftrabago.github.io" 
-           title="MAIN.CSS" 
-           class="myDesign-hover-opacity">
-            Julius Fergy Tiongson RABAGO
-            &nbsp;|&nbsp;
-            Created on July 16, 2024
-            &nbsp;|&nbsp;
-            Last updated on <span id="lastModifiedDate"></span>
-        </a>
+<section id="teaching">
+  <h2>Teaching</h2>
+    <p class="ptitle">Part-Time Lecturer, Graduate Course: Applied Analysis</p>
+    <p class="pdesc">
+      Kanazawa University, Kanazawa City, Japan<br>
+      2026.04.06 – 2026.06.04, Q1<br>
+      2025.04.07 – 2025.06.04, Q1<br>
+      2024.04.08 – 2024.06.05, Q1<br>
+      2023.04.06 – 2023.06.05, Q1
     </p>
+    <p class="ptitle">Adjunct Assistant Professor, Undergraduate Courses: College Algebra</p>
+    <p class="pdesc">
+      Temple University, Japan Campus, Setagaya City, Japan<br>
+      2024.08.26 – 2024.12.18 (2024.10.31), Fall 2024<br>
+      2024.05.20 – 2024.08.07, Summer 2024<br>
+      2024.01.08 – 2024.05.01, Spring 2024
+    </p>
+    <p class="ptitle">Lecturer, Undergraduate Course: Pre-Calculus</p>
+    <p class="pdesc">
+      University of the Philippines Baguio, Baguio City, Philippines<br>
+      2015.01.22 – 2015.06.08
+    </p>
+    <p class="ptitle">Instructor, Undergraduate Courses: Mathematical Biology, Elementary Analysis, and Calculus</p>
+    <p class="pdesc">
+      Central Luzon State University, Science City of Muñoz, Nueva Ecija, Philippines<br>
+      2013.11.12 – 2014.04.30, AY 2013-2014, 2nd Semester
+    </p>
+    <p class="ptitle">Lecturer, Undergraduate Courses: Elementary Analysis, Calculus, and Pre-Calculus</p>
+    <p class="pdesc">
+      Central Luzon State University, Science City of Muñoz, Nueva Ecija, Philippines<br>
+      2013.06.10 – 2013.10.18, AY 2013-2014, 1st Semester<br>
+      2012.11.19 – 2013.03.27, AY 2012-2013, 2nd Semester<br>
+      2012.06.13 – 2012.10.26, AY 2012-2013, 1st Semester<br>
+      2012.04.02 – 2012.05.11, AY 2011-2012, Summer<br>
+      2011.11.08 – 2012.03.23, AY 2011-2012, 2nd Semester<br>
+      2011.06.06 – 2011.10.21, AY 2011-2012, 1st Semester<br>
+      2011.04.11 – 2011.05.27, AY 2010-2011, Summer
+    </p>
+</section>
 
-</div>
+<!-- EVENTS -->
+<section id="events">
+  <h2>Research Meetings and Seminars</h2>
+  <ul>
+    <li><a href="https://www.mathsoc.jp/~dfe/workshop.html">研究集会等の情報 (Informations on Research Meetings, etc)</a></li>
+    <li><a href="https://jftrabago.github.io/WMANP/">現象数理解析研究会 (Workshop on Mathematical Analysis for Nonlinear Phenomena)</a></li>
+    <li><a href="http://polaris.s.kanazawa-u.ac.jp/kas/">金沢解析セミナー (Kanazawa Analysis Seminar)</a></li>
+    <li><a href="https://scheme.hn/deds/">微分方程式とデータサイエンス研究会 (Differential Equations in Data Science)</a></li>
+    <li><a href="https://sites.google.com/site/masatowebj/wmanp">現象数理解析研究会 (Workshop on Mathematical Analysis for Nonlinear Phenomena)</a></li>
+    <li><a href="https://sites.google.com/view/shapeseminar">Shape Seminar</a></li>
+  </ul>
 
-<script>
-function displayLastModified() {
-    const lastModified = new Date(document.lastModified);
+  <h3>Events</h3>
+  <ul>
+    <li><s><a href="https://jftrabago.github.io/WMANP/">The 22nd Workshop on Mathematical Analysis for Nonlinear Phenomena</a></s></li>
+    <li><s><a href="https://sites.google.com/view/deds2025/">International Conference: Differential Equations for Data Science 2025 (DEDS2025), Kyoto, Japan</a></s></li>
+    <li><s><a href="https://jftrabago.github.io/MNANP2025/">Workshop on Modeling and Numerical Analysis of Nonlinear Phenomena 2025 (MNANP2025), Kanazawa, Japan</a></s></li>
+    <li><s><a href="https://comads.science.upd.edu.ph">International Workshop on Computational and Mathematical Methods in Data Science 2025 (CoMaDS2025), Boracay, Aklan, Philippines</a></s></li>
+    <li><s><a href="https://easiam2025inmanila.github.io/easiam2025inmanila/">The 18th SIAM East Asian Section Conference (EASIAM2025), Manila, Philippines</a></s></li>
+    <li><s><a href="http://jftrabago.github.io/CASKUWorkshop2025/">Czech Academy of Sciences–Kanazawa University Workshop, Kanazawa, Ishikawa, Japan</a></s></li>
+    <li><s><a href="https://seamsschool2025baguio.github.io/seamsschool2025baguio/">SEAMS School 2025 Baguio (Inverse Problems and Optimal Control), Baguio, Philippines</a></s></li>
+    <li><s><a href="https://jftrabago.github.io/AMSC2026Kanazawa/">AMSC 2026: Workshop on Applied Mathematics and Scientific Computing, Kanazawa, Ishikawa, Japan</a></s></li>
+    <li><s><a href="https://comfos-nasc2026.github.io/CoMFoSNASC2026/">CoMFos-NASC 2026, Lapu-Lapu City, Cebu, Philippines</a></s></li>
+    <li><s><a href="https://jftrabago.github.io/3rdAMSC2026Kanazawa/">3rd AMSC 2026: Workshop on Applied Mathematics and Scientific Computing, Kanazawa, Ishikawa, Japan</a></s></li>
+  </ul>
+</section>
 
-    const date = lastModified.toLocaleDateString("en-US", {
-        timeZone: "Asia/Tokyo",
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    });
+<!-- CONTACTS -->
+<section id="contacts">
+  <h2>Contacts</h2>
+  <div class="contact-cols">
+    <div>
+      <h3>Postal Address</h3>
+      <address>
+        Room 211, Building C4 (Telephone Number: +81-76-264-6129)<br>
+        Faculty of Mathematics and Physics<br>
+        研究室２１１自然科学５号館<br>
+        理工研究域 数物科学系<br>
+        Institute of Science and Engineering<br>
+        Kanazawa University, Kakuma Campus<br>
+        Kanazawa, 920-1192, Ishikawa, Japan
+      </address>
+    </div>
+    <div>
+      <h3>E-Mail Addresses</h3>
+      <ul>
+        <li><s>rabagojft[at]se.kanazawa-u.ac.jp</s> (This email address is no longer in use.)</li>
+        <li>jftrabago[at]gmail.com</li>
+        <li>jfrabago[at]gmail.com</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    const time = lastModified.toLocaleTimeString("en-GB", {
-        timeZone: "Asia/Tokyo",
-        hour: "2-digit",
-        minute: "2-digit"
-    });
+<footer>
+  <p>&copy; Julius Fergy Tiongson Rabago · Created on July 16, 2024 · Last updated: October 2026</p>
+</footer>
 
-    document.getElementById("lastModifiedDate").textContent =
-        `${date} | ${time} JST`;
-}
-
-window.onload = displayLastModified;
-</script>
-
-
-<script>
-// Script to open and close sidebar
-function myDesign_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
- 
-function myDesign_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-</script>
-
+</main>
 </body>
 </html>
