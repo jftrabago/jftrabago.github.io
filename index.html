@@ -128,6 +128,15 @@ ul.news > li { margin-bottom: 0.9rem; }
 .pub .refs em { font-style: italic; }
 .pub .links   { order: 4; color: var(--link); font-size: 0.9rem; margin-top: 0.2rem; }
 
+/* automatic reverse numbering: [N] down to [1] */
+body { counter-reset: pub-num 28; }  /* <-- set to (number of publications + 1) */
+
+.pub { counter-increment: pub-num -1; }
+.pub .title::before {
+  content: "[" counter(pub-num) "]  ";
+  color: var(--faint);
+  font-weight: normal;
+}
 /* own name in author lists: navy, not bold */
 .me { color: var(--accent); }
 /* "Invited" tag in talks: italic navy, not bold */
@@ -242,7 +251,11 @@ footer {
   <h3>News</h3>
   <ul class="news">
     <li>
-      <span class="date">2026.09.14</span> <span class="new">New</span><br>
+      <span class="date">2027.01.23-24</span> <span class="new">New</span><br>
+      <a href="https://jftrabago.github.io/MNANP2027/">MNANP2027 (In conjunction with CoMFoS27)</a>
+    </li>
+    <li>
+      <span class="date">2026.09.14</span>
       <a href="https://jftrabago.github.io/WMANP/">35th Workshop on Mathematical Analysis for Nonlinear Phenomena</a>
     </li>
     <li>
@@ -392,7 +405,12 @@ footer {
   <h3>Preprints</h3>
   <p class="pub">
     <span class="authors">M. Essahraoui, E. Cherrat, L. Afraites, and <span class="me">J. F. T. Rabago</span></span>
-    <span class="title">TBA</span>
+    <span class="title">TBD</span>
+    <span class="links">[PDF] · arXiv · doi</span>
+  </p>
+  <p class="pub">
+    <span class="authors">L. Afraites, A. Hadri, M. Hrizi, H. Kahlaoui, and <span class="me">J. F. T. Rabago</span></span>
+    <span class="title">TBD</span>
     <span class="links">[PDF] · arXiv · doi</span>
   </p>
   <p class="pub">
@@ -821,6 +839,7 @@ footer {
     <li><s><a href="https://comfos-nasc2026.github.io/CoMFoSNASC2026/">CoMFos-NASC 2026, Lapu-Lapu City, Cebu, Philippines</a></s></li>
     <li><s><a href="https://jftrabago.github.io/3rdAMSC2026Kanazawa/">3rd AMSC 2026: Workshop on Applied Mathematics and Scientific Computing, Kanazawa, Ishikawa, Japan</a></s></li>
   </ul>
+    <li><s><a href="https://jftrabago.github.io/MNANP2027/">Workshop on Modeling and Numerical Analysis of Nonlinear Phenomena 2027 (MNANP2027), Kanazawa, Japan</a></s></li>
 </section>
 
 <!-- CONTACTS -->
